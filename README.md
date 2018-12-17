@@ -1,2 +1,2 @@
 # TopSecretGame
-This is a geme in develop
+This is a game in develop
