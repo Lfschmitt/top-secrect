@@ -1,3 +1,3 @@
 # Top secret game
 
-This is a game in develop
+This is a game in develop.
