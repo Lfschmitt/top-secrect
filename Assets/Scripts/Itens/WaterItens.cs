@@ -55,13 +55,13 @@ public class WaterItens : MonoBehaviour {
             upgrade = !upgrade;
         }
 
-        moneyCollect.ReciveMoney(0, TotalMoney);
+        moneyCollect.ReciveMoney(4, TotalMoney);
     }
 
     public void BuyCompany(int number)
     {
         NumberOfCompany += number;
-        CompanyValue += MoneyPerCompany;
+        CompanyValue += CompanyValue / 2;
         allPoints.AddNature(afectNature);
         allPoints.AddWater(afectWater);
         allPoints.AddPopulation(afectPopulation);
@@ -70,7 +70,7 @@ public class WaterItens : MonoBehaviour {
     public void BuyUpgrade(int number)
     {
         NumberOfUpgrades += number;
-        UpgradeValue += MoneyPerCompany;
+        UpgradeValue += UpgradeValue / 2;
         allPoints.AddNature(afectNature / 2);
         allPoints.AddWater(afectWater / 2);
         allPoints.AddPopulation(afectPopulation / 2);

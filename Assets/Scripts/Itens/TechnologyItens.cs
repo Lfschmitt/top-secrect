@@ -61,7 +61,7 @@ public class TechnologyItens : MonoBehaviour {
     public void BuyCompany(int number)
     {
         NumberOfCompany += number;
-        CompanyValue += MoneyPerCompany;
+        CompanyValue += CompanyValue / 2;
         allPoints.AddTechnology(afectTechnology);
         allPoints.AddPopulation(afectPopulation);
         allPoints.AddNature(afectNature);
@@ -71,7 +71,7 @@ public class TechnologyItens : MonoBehaviour {
     public void BuyUpgrade(int number)
     {
         NumberOfUpgrades += number;
-        UpgradeValue += MoneyPerCompany;
+        UpgradeValue += UpgradeValue / 2;
         allPoints.AddTechnology(afectTechnology / 2);
         allPoints.AddPopulation(afectPopulation / 2);
         allPoints.AddNature(afectNature / 2);

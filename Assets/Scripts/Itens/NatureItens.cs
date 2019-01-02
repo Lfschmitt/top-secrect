@@ -56,22 +56,22 @@ public class NatureItens : MonoBehaviour {
             upgrade = !upgrade;
         }
 
-        moneyCollect.ReciveMoney(0, TotalMoney);
+        moneyCollect.ReciveMoney(6, TotalMoney);
     }
 
     public void BuyCompany(int number)
     {
         NumberOfCompany += number;
-        CompanyValue += MoneyPerCompany;
-        allPoints.AddPopulation(afectWater);
-        allPoints.AddWater(afectPopulation);
+        CompanyValue += CompanyValue / 2;
+        allPoints.AddPopulation(afectPopulation);
+        allPoints.AddWater(afectWater);
         allPoints.AddNature(afectNature);
     }
 
     public void BuyUpgrade(int number)
     {
         NumberOfUpgrades += number;
-        UpgradeValue += MoneyPerCompany;
+        UpgradeValue += UpgradeValue / 2;
         allPoints.AddWater(afectWater / 2);
         allPoints.AddPopulation(afectPopulation / 2);
         allPoints.AddNature(afectNature / 2);

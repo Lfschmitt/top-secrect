@@ -56,13 +56,13 @@ public class ArmyItens : MonoBehaviour {
             upgrade = !upgrade;
         }
 
-        moneyCollect.ReciveMoney(0, TotalMoney);
+        moneyCollect.ReciveMoney(2, TotalMoney);
     }
 
     public void BuyCompany(int number)
     {
         NumberOfCompany += number;
-        CompanyValue += MoneyPerCompany;
+        CompanyValue += CompanyValue / 2;
         allPoints.AddArmy(afectArmy);
         allPoints.Addfood(afectFood);
         allPoints.AddWater(afectWater);
@@ -72,7 +72,7 @@ public class ArmyItens : MonoBehaviour {
     public void BuyUpgrade(int number)
     {
         NumberOfUpgrades += number;
-        UpgradeValue += MoneyPerCompany;
+        UpgradeValue += UpgradeValue / 2;
         allPoints.AddArmy(afectArmy / 2);
         allPoints.Addfood(afectFood / 2);
         allPoints.AddWater(afectWater / 2);

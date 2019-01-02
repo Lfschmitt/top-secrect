@@ -3287,14 +3287,14 @@ MonoBehaviour:
   NumberOfUpgrades: 0
   MoneyPerUpgrade: 4
   MoneyPerCompany: 10
-  CompanyValue: 20
-  UpgradeValue: 20
+  CompanyValue: 100
+  UpgradeValue: 70
   company: 0
   upgrade: 0
-  afectTechnology: 10
-  afectPopulation: -5
-  afectNature: -5
-  afectEnergy: -5
+  afectTechnology: 20
+  afectPopulation: -10
+  afectNature: -10
+  afectEnergy: -10
 --- !u!114 &1430792055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3316,9 +3316,9 @@ MonoBehaviour:
   UpgradeValue: 10
   company: 0
   upgrade: 0
-  afectPopulation: -3
-  afectNature: -5
-  afectEnergy: 10
+  afectPopulation: -10
+  afectNature: -10
+  afectEnergy: 20
 --- !u!114 &1430792056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3336,14 +3336,14 @@ MonoBehaviour:
   NumberOfUpgrades: 0
   MoneyPerUpgrade: 1
   MoneyPerCompany: 5
-  CompanyValue: 15
-  UpgradeValue: 15
+  CompanyValue: 30
+  UpgradeValue: 20
   company: 0
   upgrade: 0
-  afectFood: -5
-  afectWater: -5
-  afectPopulation: -5
-  afectArmy: 15
+  afectFood: -15
+  afectWater: -15
+  afectPopulation: -10
+  afectArmy: 50
 --- !u!114 &1430792057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3361,14 +3361,14 @@ MonoBehaviour:
   NumberOfUpgrades: 0
   MoneyPerUpgrade: 4
   MoneyPerCompany: 10
-  CompanyValue: 20
-  UpgradeValue: 20
+  CompanyValue: 100
+  UpgradeValue: 70
   company: 0
   upgrade: 0
-  afectScience: 10
-  afectPopulation: -5
-  afectNature: -5
-  afectEnergy: -5
+  afectScience: 20
+  afectPopulation: -10
+  afectNature: -10
+  afectEnergy: -10
 --- !u!114 &1430792058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3390,8 +3390,8 @@ MonoBehaviour:
   UpgradeValue: 15
   company: 0
   upgrade: 0
-  afectWater: -5
-  afectPopulation: -5
+  afectWater: -10
+  afectPopulation: -15
   afectNature: 20
 --- !u!114 &1430792059
 MonoBehaviour:
@@ -3414,12 +3414,12 @@ MonoBehaviour:
   UpgradeValue: 10
   company: 0
   upgrade: 0
-  afectArmy: -3
-  afectWater: -5
-  afectFood: -5
-  afectPopulation: 30
-  afectEnergy: -5
-  afectNature: -5
+  afectArmy: -5
+  afectWater: -10
+  afectFood: -10
+  afectPopulation: 40
+  afectEnergy: -10
+  afectNature: -15
 --- !u!114 &1430792060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3441,8 +3441,8 @@ MonoBehaviour:
   UpgradeValue: 10
   company: 0
   upgrade: 0
-  afectPopulation: -5
-  afectWater: 15
+  afectPopulation: -10
+  afectWater: 20
   afectNature: 5
 --- !u!114 &1430792061
 MonoBehaviour:
@@ -3461,14 +3461,14 @@ MonoBehaviour:
   NumberOfUpgrades: 0
   MoneyPerUpgrade: 2
   MoneyPerCompany: 5
-  CompanyValue: 10
-  UpgradeValue: 10
+  CompanyValue: 20
+  UpgradeValue: 20
   company: 0
   upgrade: 0
-  afectFood: 10
-  afectPopulation: -5
-  afectEnergy: -5
-  afectNature: -5
+  afectFood: 20
+  afectPopulation: -10
+  afectEnergy: -10
+  afectNature: -10
 --- !u!1 &1433513165
 GameObject:
   m_ObjectHideFlags: 0
@@ -5486,7 +5486,7 @@ MonoBehaviour:
   science: 0
   army: 0
   food: 0
-  water: 0
+  water: 500
   population: 0
   power: 0
   nature: 1000

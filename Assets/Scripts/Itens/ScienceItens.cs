@@ -56,13 +56,13 @@ public class ScienceItens : MonoBehaviour {
             upgrade = !upgrade;
         }
 
-        moneyCollect.ReciveMoney(0, TotalMoney);
+        moneyCollect.ReciveMoney(1, TotalMoney);
     }
 
     public void BuyCompany(int number)
     {
         NumberOfCompany += number;
-        CompanyValue += MoneyPerCompany;
+        CompanyValue += CompanyValue / 2;
         allPoints.AddScience(afectScience);
         allPoints.AddPopulation(afectPopulation);
         allPoints.AddNature(afectNature);
@@ -72,7 +72,7 @@ public class ScienceItens : MonoBehaviour {
     public void BuyUpgrade(int number)
     {
         NumberOfUpgrades += number;
-        UpgradeValue += MoneyPerCompany;
+        UpgradeValue += UpgradeValue / 2;
         allPoints.AddScience(afectScience / 2);
         allPoints.AddPopulation(afectPopulation / 2);
         allPoints.AddNature(afectNature / 2);

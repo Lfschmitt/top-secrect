@@ -56,13 +56,13 @@ public class FoodItens : MonoBehaviour {
             upgrade = !upgrade;
         }
 
-        moneyCollect.ReciveMoney(0, TotalMoney);
+        moneyCollect.ReciveMoney(3, TotalMoney);
     }
 
     public void BuyCompany(int number)
     {
         NumberOfCompany += number;
-        CompanyValue += MoneyPerCompany;
+        CompanyValue += CompanyValue / 2;
         allPoints.AddNature(afectNature);
         allPoints.Addfood(afectFood);
         allPoints.AddPower(afectEnergy);
@@ -72,7 +72,7 @@ public class FoodItens : MonoBehaviour {
     public void BuyUpgrade(int number)
     {
         NumberOfUpgrades += number;
-        UpgradeValue += MoneyPerCompany;
+        UpgradeValue += UpgradeValue / 2;
         allPoints.AddNature(afectNature / 2);
         allPoints.Addfood(afectFood / 2);
         allPoints.AddPower(afectEnergy / 2);

@@ -162,64 +162,64 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= technology.CompanyValue)
             {
-                technology.BuyCompany(1);
                 allPoints.money -= technology.CompanyValue;
+                technology.BuyCompany(1);
             }
         }
         else if (count == 1)
         {
             if (allPoints.money >= science.CompanyValue)
             {
-                science.BuyCompany(1);
                 allPoints.money -= science.CompanyValue;
+                science.BuyCompany(1);
             }
         }
         else if (count == 2)
         {
             if (allPoints.money >= army.CompanyValue)
             {
-                army.BuyCompany(1);
                 allPoints.money -= army.CompanyValue;
+                army.BuyCompany(1);
             }
         }
         else if (count == 3)
         {
             if (allPoints.money >= food.CompanyValue)
             {
-                food.BuyCompany(1);
                 allPoints.money -= food.CompanyValue;
+                food.BuyCompany(1);
             }
         }
         else if (count == 4)
         {
             if (allPoints.money >= water.CompanyValue)
             {
-                water.BuyCompany(1);
                 allPoints.money -= water.CompanyValue;
+                water.BuyCompany(1);
             }
         }
         else if (count == 5)
         {
             if (allPoints.money >= population.CompanyValue)
             {
-                population.BuyCompany(1);
                 allPoints.money -= population.CompanyValue;
+                population.BuyCompany(1);              
             }
         }
         else if (count == 6)
         {
             if (allPoints.money >= nature.CompanyValue)
             {
-                nature.BuyCompany(1);
                 allPoints.money -= nature.CompanyValue;
+                nature.BuyCompany(1);
             }
         }
         else if (count == 7)
         {
             if (allPoints.money >= energy.CompanyValue)
             {
-                energy.BuyCompany(1);
                 allPoints.money -= energy.CompanyValue;
+                energy.BuyCompany(1);
             }
         }
     }
@@ -230,64 +230,64 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= technology.UpgradeValue)
             {
-                technology.BuyUpgrade(1);
                 allPoints.money -= technology.UpgradeValue;
+                technology.BuyUpgrade(1);
             }
         }
         else if (count == 1)
         {
             if (allPoints.money >= science.UpgradeValue)
             {
-                science.BuyUpgrade(1);
                 allPoints.money -= science.UpgradeValue;
+                science.BuyUpgrade(1);
             }
         }
         else if (count == 2)
         {
             if (allPoints.money >= army.UpgradeValue)
             {
-                army.BuyUpgrade(1);
                 allPoints.money -= army.UpgradeValue;
+                army.BuyUpgrade(1);
             }
         }
         else if (count == 3)
         {
             if (allPoints.money >= food.UpgradeValue)
             {
-                food.BuyUpgrade(1);
                 allPoints.money -= food.UpgradeValue;
+                food.BuyUpgrade(1);
             }
         }
         else if (count == 4)
         {
             if (allPoints.money >= water.UpgradeValue)
             {
-                water.BuyUpgrade(1);
                 allPoints.money -= water.UpgradeValue;
+                water.BuyUpgrade(1);
             }
         }
         else if (count == 5)
         {
             if (allPoints.money >= population.UpgradeValue)
             {
-                population.BuyUpgrade(1);
                 allPoints.money -= population.UpgradeValue;
+                population.BuyUpgrade(1);
             }
         }
         else if (count == 6)
         {
             if (allPoints.money >= nature.UpgradeValue)
             {
-                nature.BuyUpgrade(1);
                 allPoints.money -= nature.UpgradeValue;
+                nature.BuyUpgrade(1);
             }
         }
         else if (count == 7)
         {
             if (allPoints.money >= energy.UpgradeValue)
             {
-                energy.BuyUpgrade(1);
                 allPoints.money -= energy.UpgradeValue;
+                energy.BuyUpgrade(1);
             }
         }
     }
