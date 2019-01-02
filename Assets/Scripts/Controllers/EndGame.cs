@@ -39,8 +39,16 @@ public class EndGame : MonoBehaviour {
 		
 	void Update () {
         ReadPoints();
+        //Ganhou
+        if (tec > 700 && sci > 700 && pop > 700 && nat > 700)
+            FinishGame("Your planet is work", true, timeController.totalDays);
+
+        //Ganhou
+        if (tec > 950 && sci > 950 && nat > 800)
+            FinishGame("You got a perfect Planet", true, timeController.totalDays);
+
         //Destruição por poluição
-        if(tec>500 && pop>600 && nat<200)
+        if (tec>500 && pop>600 && nat<200)
             Destruction("Destruição por poluição (Muitos Prédios)");
 
         //Greve Da Raça humana
@@ -79,6 +87,7 @@ public class EndGame : MonoBehaviour {
         if (tec<(army-50) && sci<(army-50) && food<(army-50) && water<(army-50) && pop<(army-50))
             Destruction("Ditadura");
 
+        //Energi abaixo dos Necessario
         if (tec > power + 150 || pop > power + 200 || food > power + 200)
             moneyCollect.FreezeEconomy(true);
         else
@@ -111,10 +120,14 @@ public class EndGame : MonoBehaviour {
         CallPanel(name, true);
         TimeGame(0);
     }
+    void FinishGame(string name, bool ft, int Days)
+    {
+        levelManager.Panel(name, ft, 1, Days);
+    }
 
     void CallPanel(string name, bool ft)
     {
-        levelManager.PanelDestruction(name, ft);
+        levelManager.Panel(name, ft, 0, 0);
     }
 
     public void TimeGame(int time)

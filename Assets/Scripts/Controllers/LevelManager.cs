@@ -7,7 +7,10 @@ public class LevelManager : MonoBehaviour {
     public GameObject shop;
     public GameObject pointsMenu;
     public GameObject destructionPanel;
+    public GameObject finishPanel;
+    public Text daysText;
     public Text endText;
+    public Text finishText;
 
     private TimeController timeController;
     private AllPoints allpoints;
@@ -44,15 +47,25 @@ public class LevelManager : MonoBehaviour {
         pointsMenu.SetActive(name);
     }
 
-    public void PanelDestruction(string name, bool ft)
+    public void Panel(string name, bool ft, int panel, int days)
     {
-        destructionPanel.SetActive(ft);
-        endText.text = name;
+        if (panel == 0)
+        {
+            destructionPanel.SetActive(ft);
+            endText.text = name;
+        }
+        else if(panel == 1)
+        {
+            finishPanel.SetActive(ft);
+            finishText.text = name;
+            daysText.text = "In " + days.ToString() + " Days";
+        }
     }
 
     public void ResetGame()
     {
-        PanelDestruction(null, false);
+        Panel(null, false, 0, 0);
+        Panel(null, false, 1, 0);
         allpoints.ResetGame();
         timeController.SetDays(0);
         endgame.TimeGame(1);
