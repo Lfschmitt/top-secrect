@@ -23,7 +23,7 @@ public class PopulationsItens : MonoBehaviour {
     public int afectNature;
     private MoneyCollect moneyCollect;
     private AllPoints allPoints;
-    private InstatiateErrorMessage errorMessage;
+    public InstatiateErrorMessage errorMessage;
     private PopulationRequirement requirement;
 
     private void Start()
@@ -37,11 +37,6 @@ public class PopulationsItens : MonoBehaviour {
         if (moneyCollect == null)
         {
             Debug.Log("The script population dont find the Game Object 'PointsController'");
-        }
-        errorMessage = GameObject.Find("ErrorMessage").GetComponent<InstatiateErrorMessage>();
-        if (errorMessage == null)
-        {
-            Debug.Log("The script population dont find the Game Object 'ErrorMessage'");
         }
         requirement = GameObject.Find("ItensRequirementManager").GetComponent<PopulationRequirement>();
         if (requirement == null)

@@ -21,7 +21,7 @@ public class ScienceItens : MonoBehaviour {
     public int afectEnergy;
     private MoneyCollect moneyCollect;
     private AllPoints allPoints;
-    private InstatiateErrorMessage errorMessage;
+    public InstatiateErrorMessage errorMessage;
     private ScienceRequirement requirement;
 
     private void Start()
@@ -35,11 +35,6 @@ public class ScienceItens : MonoBehaviour {
         if (moneyCollect == null)
         {
             Debug.Log("The script science dont find the Game Object 'PointsController'");
-        }
-        errorMessage = GameObject.Find("ErrorMessage").GetComponent<InstatiateErrorMessage>();
-        if (errorMessage == null)
-        {
-            Debug.Log("The script science dont find the Game Object 'ErrorMessage'");
         }
         requirement = GameObject.Find("ItensRequirementManager").GetComponent<ScienceRequirement>();
         if (requirement == null)

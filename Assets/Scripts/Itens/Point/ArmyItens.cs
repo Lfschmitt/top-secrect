@@ -21,7 +21,7 @@ public class ArmyItens : MonoBehaviour {
     public int afectArmy;
     private MoneyCollect moneyCollect;
     private AllPoints allPoints;
-    private InstatiateErrorMessage errorMessage;
+    public InstatiateErrorMessage errorMessage;
     private ArmyRequirement requirement;
 
     private void Start()
@@ -35,11 +35,6 @@ public class ArmyItens : MonoBehaviour {
         if (moneyCollect == null)
         {
             Debug.Log("The script army dont find the Game Object 'PointsController'");
-        }
-        errorMessage = GameObject.Find("ErrorMessage").GetComponent<InstatiateErrorMessage>();
-        if (errorMessage == null)
-        {
-            Debug.Log("The script army dont find the Game Object 'ErrorMessage'");
         }
         requirement = GameObject.Find("ItensRequirementManager").GetComponent<ArmyRequirement>();
         if (requirement == null)

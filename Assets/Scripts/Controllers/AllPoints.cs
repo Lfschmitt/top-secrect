@@ -87,10 +87,11 @@ public class AllPoints : MonoBehaviour {
         technology = 0;
         science = 0;
         army = 0;
-        food = 0;
-        water = 0;
-        population = 0;
+        food = maxValue/10;
+        water = maxValue/2;
+        population = maxValue/10;
         power = 0;
+        money = maxValue/10;
         nature = maxValue;
     }
     public void ResetGame() {

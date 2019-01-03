@@ -16,7 +16,7 @@ public class NatureRequirement : MonoBehaviour {
 
     public void Update()
     {
-        if (allPoints.power + nature.afectWater < 0)
+        if (allPoints.water + nature.afectWater < 0)
         {
             requirement = "Need Water";
         }

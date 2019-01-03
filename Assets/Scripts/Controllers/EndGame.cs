@@ -88,7 +88,7 @@ public class EndGame : MonoBehaviour {
             Destruction("Ditadura");
 
         //Planeta morreu
-        if (nat > 10)
+        if (nat < 10)
             Destruction("Your planet is dead");
 
         //A populaçao morreu

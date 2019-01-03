@@ -20,8 +20,8 @@ public class EnergyItens : MonoBehaviour {
     public int afectEnergy;
     private MoneyCollect moneyCollect;
     private AllPoints allPoints;
+    public InstatiateErrorMessage errorMessage;
     private EnergyRequirement requirement;
-    private InstatiateErrorMessage errorMessage;
 
     private void Start()
     {
@@ -34,11 +34,6 @@ public class EnergyItens : MonoBehaviour {
         if (moneyCollect == null)
         {
             Debug.Log("The script energy dont fint the Game Object 'PointsController'");
-        }
-        errorMessage = GameObject.Find("ErrorMessage").GetComponent<InstatiateErrorMessage>();
-        if (errorMessage == null)
-        {
-            Debug.Log("The script energy dont find the Game Object 'ErrorMessage'");
         }
         requirement = GameObject.Find("ItensRequirementManager").GetComponent<EnergyRequirement>();
         if (requirement == null)

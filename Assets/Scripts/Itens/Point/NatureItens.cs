@@ -21,7 +21,7 @@ public class NatureItens : MonoBehaviour {
 
     private MoneyCollect moneyCollect;
     private AllPoints allPoints;
-    private InstatiateErrorMessage errorMessage;
+    public InstatiateErrorMessage errorMessage;
     private NatureRequirement requirement;
 
     private void Start()
@@ -35,11 +35,6 @@ public class NatureItens : MonoBehaviour {
         if (moneyCollect == null)
         {
             Debug.Log("The script nature dont find the Game Object 'PointsController'");
-        }
-        errorMessage = GameObject.Find("ErrorMessage").GetComponent<InstatiateErrorMessage>();
-        if (errorMessage == null)
-        {
-            Debug.Log("The script nature dont find the Game Object 'ErrorMessage'");
         }
         requirement = GameObject.Find("ItensRequirementManager").GetComponent<NatureRequirement>();
         if (requirement == null)

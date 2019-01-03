@@ -325,8 +325,8 @@ RectTransform:
   - {fileID: 450448457}
   - {fileID: 1905724355}
   - {fileID: 1103151071}
-  - {fileID: 919410237}
   - {fileID: 1178398012}
+  - {fileID: 919410237}
   - {fileID: 347578295}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2500,7 +2500,7 @@ RectTransform:
   - {fileID: 806234132}
   - {fileID: 1745067663}
   m_Father: {fileID: 98027149}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3260,7 +3260,7 @@ RectTransform:
   - {fileID: 1156022105}
   - {fileID: 1196353878}
   m_Father: {fileID: 98027149}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4004,6 +4004,7 @@ MonoBehaviour:
   afectPopulation: -10
   afectNature: -10
   afectEnergy: -10
+  errorMessage: {fileID: 1192338950}
 --- !u!114 &1430792055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4026,6 +4027,7 @@ MonoBehaviour:
   afectPopulation: -10
   afectNature: -10
   afectEnergy: 20
+  errorMessage: {fileID: 1192338950}
 --- !u!114 &1430792056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4049,6 +4051,7 @@ MonoBehaviour:
   afectWater: -15
   afectPopulation: -10
   afectArmy: 50
+  errorMessage: {fileID: 1192338950}
 --- !u!114 &1430792057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4072,6 +4075,7 @@ MonoBehaviour:
   afectPopulation: -10
   afectNature: -10
   afectEnergy: -10
+  errorMessage: {fileID: 1192338950}
 --- !u!114 &1430792058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4094,6 +4098,7 @@ MonoBehaviour:
   afectWater: -10
   afectPopulation: -15
   afectNature: 20
+  errorMessage: {fileID: 1192338950}
 --- !u!114 &1430792059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4119,6 +4124,7 @@ MonoBehaviour:
   afectPopulation: 40
   afectEnergy: -10
   afectNature: -15
+  errorMessage: {fileID: 1192338950}
 --- !u!114 &1430792060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4141,6 +4147,7 @@ MonoBehaviour:
   afectPopulation: -10
   afectWater: 20
   afectNature: 5
+  errorMessage: {fileID: 1192338950}
 --- !u!114 &1430792061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4164,6 +4171,7 @@ MonoBehaviour:
   afectPopulation: -10
   afectEnergy: -10
   afectNature: -10
+  errorMessage: {fileID: 1192338950}
 --- !u!1 &1433513165
 GameObject:
   m_ObjectHideFlags: 0
@@ -5691,7 +5699,7 @@ MonoBehaviour:
   pointsMenu: {fileID: 1103151070}
   destructionPanel: {fileID: 919410236}
   finishPanel: {fileID: 347578294}
-  daysText: {fileID: 0}
+  daysText: {fileID: 287751343}
   endText: {fileID: 895705216}
   finishText: {fileID: 350652635}
 --- !u!4 &1840796453

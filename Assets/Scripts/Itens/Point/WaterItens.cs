@@ -20,7 +20,7 @@ public class WaterItens : MonoBehaviour {
     public int afectNature;
     private MoneyCollect moneyCollect;
     private AllPoints allPoints;
-    private InstatiateErrorMessage errorMessage;
+    public InstatiateErrorMessage errorMessage;
     private WaterRequirement requirement;
 
     private void Start()
@@ -34,11 +34,6 @@ public class WaterItens : MonoBehaviour {
         if (moneyCollect == null)
         {
             Debug.Log("The script water dont find the Game Object 'PointsController'");
-        }
-        errorMessage = GameObject.Find("ErrorMessage").GetComponent<InstatiateErrorMessage>();
-        if (errorMessage == null)
-        {
-            Debug.Log("The script water dont find the Game Object 'ErrorMessage'");
         }
         requirement = GameObject.Find("ItensRequirementManager").GetComponent<WaterRequirement>();
         if (requirement == null)
