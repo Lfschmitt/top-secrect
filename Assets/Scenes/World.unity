@@ -559,6 +559,138 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 187499011}
+--- !u!1 &243540005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 243540006}
+  - component: {fileID: 243540007}
+  - component: {fileID: 243540008}
+  - component: {fileID: 243540009}
+  - component: {fileID: 243540011}
+  - component: {fileID: 243540010}
+  - component: {fileID: 243540012}
+  - component: {fileID: 243540014}
+  - component: {fileID: 243540013}
+  m_Layer: 0
+  m_Name: ItensRequirementManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &243540006
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243540005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1840796453}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &243540007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243540005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7885a3ce8480bcb449194b73cd05daf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirement: 
+--- !u!114 &243540008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243540005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4e35d401a3ea041b26d792c87c13dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirement: 
+--- !u!114 &243540009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243540005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d44dcb3fc8fcd034798389f1248fd2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirement: 
+--- !u!114 &243540010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243540005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667fa857de19726468a371c586b54966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirement: 
+--- !u!114 &243540011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243540005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2c6f47ce9a93644ae2edb247402feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirement: 
+--- !u!114 &243540012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243540005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c850132e9ae75824ca5eb9b4a1e79032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirement: 
+--- !u!114 &243540013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243540005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c1651375b8dab4c93d2fa33fc88e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirement: 
+--- !u!114 &243540014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243540005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a162e42053c140d4bb18b0e160a770f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirement: 
 --- !u!1 &256181191
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +883,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 69
+    m_FontSize: 63
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -3341,6 +3473,55 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1183111285}
+--- !u!1 &1192338948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1192338949}
+  - component: {fileID: 1192338950}
+  m_Layer: 5
+  m_Name: ErrorMessage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1192338949
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1192338948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1266826137}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1192338950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1192338948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb0ebc9a4280df4aab9eef448faf392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ErrorMessage: {fileID: 1945204136871408, guid: d7085afffc74cdf489a25b16206b72d3,
+    type: 2}
+  text: 
+  set: 0
 --- !u!1 &1196353877
 GameObject:
   m_ObjectHideFlags: 0
@@ -3606,6 +3787,7 @@ RectTransform:
   m_Children:
   - {fileID: 1598517298}
   - {fileID: 2121215857}
+  - {fileID: 1192338949}
   m_Father: {fileID: 684114301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3818,8 +4000,6 @@ MonoBehaviour:
   MoneyPerCompany: 10
   CompanyValue: 100
   UpgradeValue: 70
-  company: 0
-  upgrade: 0
   afectTechnology: 20
   afectPopulation: -10
   afectNature: -10
@@ -3843,8 +4023,6 @@ MonoBehaviour:
   MoneyPerCompany: 5
   CompanyValue: 10
   UpgradeValue: 10
-  company: 0
-  upgrade: 0
   afectPopulation: -10
   afectNature: -10
   afectEnergy: 20
@@ -3867,8 +4045,6 @@ MonoBehaviour:
   MoneyPerCompany: 5
   CompanyValue: 30
   UpgradeValue: 20
-  company: 0
-  upgrade: 0
   afectFood: -15
   afectWater: -15
   afectPopulation: -10
@@ -3892,8 +4068,6 @@ MonoBehaviour:
   MoneyPerCompany: 10
   CompanyValue: 100
   UpgradeValue: 70
-  company: 0
-  upgrade: 0
   afectScience: 20
   afectPopulation: -10
   afectNature: -10
@@ -3917,8 +4091,6 @@ MonoBehaviour:
   MoneyPerCompany: 5
   CompanyValue: 15
   UpgradeValue: 15
-  company: 0
-  upgrade: 0
   afectWater: -10
   afectPopulation: -15
   afectNature: 20
@@ -3941,8 +4113,6 @@ MonoBehaviour:
   MoneyPerCompany: 8
   CompanyValue: 10
   UpgradeValue: 10
-  company: 0
-  upgrade: 0
   afectArmy: -5
   afectWater: -10
   afectFood: -10
@@ -3968,8 +4138,6 @@ MonoBehaviour:
   MoneyPerCompany: 5
   CompanyValue: 10
   UpgradeValue: 10
-  company: 0
-  upgrade: 0
   afectPopulation: -10
   afectWater: 20
   afectNature: 5
@@ -3992,8 +4160,6 @@ MonoBehaviour:
   MoneyPerCompany: 5
   CompanyValue: 20
   UpgradeValue: 20
-  company: 0
-  upgrade: 0
   afectFood: 20
   afectPopulation: -10
   afectEnergy: -10
@@ -5539,6 +5705,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1430792053}
+  - {fileID: 243540006}
   m_Father: {fileID: 730880621}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5581,6 +5748,8 @@ MonoBehaviour:
   numberCompany: {fileID: 388108951}
   pricePerCompany: {fileID: 450743320}
   Button: {fileID: 1818169810}
+  errorText: {fileID: 0}
+  error: {fileID: 0}
   count: 0
 --- !u!1 &1840877693
 GameObject:
@@ -6167,7 +6336,7 @@ MonoBehaviour:
   army: 0
   food: 0
   water: 500
-  population: 0
+  population: 100
   power: 0
   nature: 1000
   money: 100

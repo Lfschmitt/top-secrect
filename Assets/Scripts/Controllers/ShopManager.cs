@@ -13,10 +13,14 @@ public class ShopManager : MonoBehaviour {
     public Text numberCompany;
     public Text pricePerCompany;
     public Text Button;
+    public Text errorText;
+    public GameObject error;
 
     public int count;
     private AllPoints allPoints;
 
+    private int distance;
+    private int steps;
     private TechnologyItens technology;
     private ScienceItens science;
     private ArmyItens army;
@@ -26,7 +30,7 @@ public class ShopManager : MonoBehaviour {
     private NatureItens nature;
     private EnergyItens energy;
 
-	void Start () {
+    void Start () {
         allPoints = GameObject.Find("PointsController").GetComponent<AllPoints>();
 
         technology = GameObject.Find("ItensBuyManager").GetComponent<TechnologyItens>();
@@ -65,8 +69,7 @@ public class ShopManager : MonoBehaviour {
             count = 0;
         else if(count < 7)
             count++;        
-    }
-    
+    }    
     public void CountLess()
     {
         if (count == 0)
@@ -162,7 +165,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= technology.CompanyValue)
             {
-                allPoints.money -= technology.CompanyValue;
                 technology.BuyCompany(1);
             }
         }
@@ -170,7 +172,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= science.CompanyValue)
             {
-                allPoints.money -= science.CompanyValue;
                 science.BuyCompany(1);
             }
         }
@@ -178,7 +179,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= army.CompanyValue)
             {
-                allPoints.money -= army.CompanyValue;
                 army.BuyCompany(1);
             }
         }
@@ -186,7 +186,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= food.CompanyValue)
             {
-                allPoints.money -= food.CompanyValue;
                 food.BuyCompany(1);
             }
         }
@@ -194,7 +193,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= water.CompanyValue)
             {
-                allPoints.money -= water.CompanyValue;
                 water.BuyCompany(1);
             }
         }
@@ -202,7 +200,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= population.CompanyValue)
             {
-                allPoints.money -= population.CompanyValue;
                 population.BuyCompany(1);              
             }
         }
@@ -210,7 +207,7 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= nature.CompanyValue)
             {
-                allPoints.money -= nature.CompanyValue;
+                
                 nature.BuyCompany(1);
             }
         }
@@ -218,19 +215,16 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= energy.CompanyValue)
             {
-                allPoints.money -= energy.CompanyValue;
                 energy.BuyCompany(1);
             }
         }
     }
-
     public void UpgradeButton()
     {
         if (count == 0)
         {
             if (allPoints.money >= technology.UpgradeValue)
             {
-                allPoints.money -= technology.UpgradeValue;
                 technology.BuyUpgrade(1);
             }
         }
@@ -238,7 +232,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= science.UpgradeValue)
             {
-                allPoints.money -= science.UpgradeValue;
                 science.BuyUpgrade(1);
             }
         }
@@ -246,7 +239,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= army.UpgradeValue)
             {
-                allPoints.money -= army.UpgradeValue;
                 army.BuyUpgrade(1);
             }
         }
@@ -254,7 +246,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= food.UpgradeValue)
             {
-                allPoints.money -= food.UpgradeValue;
                 food.BuyUpgrade(1);
             }
         }
@@ -262,7 +253,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= water.UpgradeValue)
             {
-                allPoints.money -= water.UpgradeValue;
                 water.BuyUpgrade(1);
             }
         }
@@ -270,7 +260,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= population.UpgradeValue)
             {
-                allPoints.money -= population.UpgradeValue;
                 population.BuyUpgrade(1);
             }
         }
@@ -278,7 +267,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= nature.UpgradeValue)
             {
-                allPoints.money -= nature.UpgradeValue;
                 nature.BuyUpgrade(1);
             }
         }
@@ -286,7 +274,6 @@ public class ShopManager : MonoBehaviour {
         {
             if (allPoints.money >= energy.UpgradeValue)
             {
-                allPoints.money -= energy.UpgradeValue;
                 energy.BuyUpgrade(1);
             }
         }
