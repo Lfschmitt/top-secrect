@@ -12,6 +12,8 @@ public class NatureItens : MonoBehaviour {
     public int MoneyPerUpgrade;
     public int MoneyPerCompany;
 
+    public int SetCompanyValue;
+    public int SetUpgradeValue;
     public int CompanyValue;
     public int UpgradeValue;
 
@@ -41,6 +43,8 @@ public class NatureItens : MonoBehaviour {
         {
             Debug.Log("The script nature dont find the Game Object 'ItensRequirementManager'");
         }
+        SetCompanyValue = CompanyValue;
+        SetUpgradeValue = UpgradeValue;
     }
 
     void Update()
@@ -57,7 +61,7 @@ public class NatureItens : MonoBehaviour {
         {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
-            CompanyValue += CompanyValue / 2;
+            CompanyValue = CompanyValue * NumberOfCompany * (3 / 2);
             allPoints.AddPopulation(afectPopulation);
             allPoints.AddWater(afectWater);
             allPoints.AddNature(afectNature);
@@ -74,7 +78,7 @@ public class NatureItens : MonoBehaviour {
         {
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
-            UpgradeValue += UpgradeValue / 2;
+            UpgradeValue = UpgradeValue * NumberOfUpgrades * (3 / 2);
             allPoints.AddWater(afectWater / 2);
             allPoints.AddPopulation(afectPopulation / 2);
             allPoints.AddNature(afectNature / 2);

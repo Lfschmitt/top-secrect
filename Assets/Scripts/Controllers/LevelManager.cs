@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour {
     public Text endText;
     public Text finishText;
 
+    private SaveController saveController;
     private TimeController timeController;
     private AllPoints allpoints;
     private EndGame endgame;
@@ -20,6 +21,12 @@ public class LevelManager : MonoBehaviour {
     {
         allpoints = GameObject.Find("PointsController").GetComponent<AllPoints>();
         if (allpoints == null)
+        {
+            Debug.Log("The game object -PointsController- not find in scene");
+        }
+
+        saveController = GameObject.Find("PointsController").GetComponent<SaveController>();
+        if (saveController == null)
         {
             Debug.Log("The game object -PointsController- not find in scene");
         }
@@ -66,8 +73,7 @@ public class LevelManager : MonoBehaviour {
     {
         Panel(null, false, 0, 0);
         Panel(null, false, 1, 0);
-        allpoints.ResetGame();
-        timeController.SetDays(0);
+        saveController.ResetData();
         endgame.TimeGame(1);
     }
 }

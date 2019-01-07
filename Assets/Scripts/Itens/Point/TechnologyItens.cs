@@ -12,6 +12,8 @@ public class TechnologyItens : MonoBehaviour {
     public int MoneyPerUpgrade;
     public int MoneyPerCompany;
 
+    public int SetCompanyValue;
+    public int SetUpgradeValue;
     public int CompanyValue;
     public int UpgradeValue;
 
@@ -41,6 +43,8 @@ public class TechnologyItens : MonoBehaviour {
         {
             Debug.Log("The script technology dont find the Game Object 'ItensRequirementManager'");
         }
+        SetCompanyValue = CompanyValue;
+        SetUpgradeValue = UpgradeValue;
     }
 
     void Update() {
@@ -56,7 +60,7 @@ public class TechnologyItens : MonoBehaviour {
         {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
-            CompanyValue += CompanyValue / 2;
+            CompanyValue = CompanyValue * NumberOfCompany * (3 / 2);
             allPoints.AddTechnology(afectTechnology);
             allPoints.AddPopulation(afectPopulation);
             allPoints.AddNature(afectNature);
@@ -74,7 +78,7 @@ public class TechnologyItens : MonoBehaviour {
         {
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
-            UpgradeValue += UpgradeValue / 2;
+            UpgradeValue = UpgradeValue * NumberOfUpgrades * (3 / 2);
             allPoints.AddTechnology(afectTechnology / 2);
             allPoints.AddPopulation(afectPopulation / 2);
             allPoints.AddNature(afectNature / 2);

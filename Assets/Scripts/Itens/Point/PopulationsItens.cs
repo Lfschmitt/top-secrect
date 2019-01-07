@@ -12,6 +12,8 @@ public class PopulationsItens : MonoBehaviour {
     public int MoneyPerUpgrade;
     public int MoneyPerCompany;
 
+    public int SetCompanyValue;
+    public int SetUpgradeValue;
     public int CompanyValue;
     public int UpgradeValue;
 
@@ -43,6 +45,8 @@ public class PopulationsItens : MonoBehaviour {
         {
             Debug.Log("The script population dont find the Game Object 'ItensRequirementManager'");
         }
+        SetCompanyValue = CompanyValue;
+        SetUpgradeValue = UpgradeValue;
     }
 
     void Update()
@@ -59,7 +63,7 @@ public class PopulationsItens : MonoBehaviour {
         {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
-            CompanyValue += CompanyValue / 2;
+            CompanyValue = CompanyValue * NumberOfCompany * (3 / 2);
             allPoints.AddArmy(afectArmy);
             allPoints.AddWater(afectWater);
             allPoints.Addfood(afectFood);
@@ -79,7 +83,7 @@ public class PopulationsItens : MonoBehaviour {
         {
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
-            UpgradeValue += UpgradeValue / 2;
+            UpgradeValue = UpgradeValue * NumberOfUpgrades * (3 / 2);
             allPoints.AddArmy(afectArmy / 2);
             allPoints.AddWater(afectWater / 2);
             allPoints.Addfood(afectFood / 2);

@@ -39,7 +39,6 @@ public class TimeController : MonoBehaviour {
             {
                 moneyCollect.SendMoney(1);          
                 totalDays++;
-                allpoints.SavePoints("TotalDays", totalDays);
                 avanceDay = !avanceDay;
             }
             else
@@ -78,7 +77,6 @@ public class TimeController : MonoBehaviour {
             }
             totalDays++;
             avanceMoreDays--;
-            allpoints.SavePoints("TotalDays", totalDays);
             inputField.text = avanceMoreDays.ToString();
             yield return new WaitForSeconds(waitTime);
         }       
@@ -102,6 +100,5 @@ public class TimeController : MonoBehaviour {
     public void SetDays(int number)
     {
         totalDays = number;
-        allpoints.SavePoints("TotalDays", totalDays);
     }
 }

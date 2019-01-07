@@ -12,6 +12,8 @@ public class EnergyItens : MonoBehaviour {
     public int MoneyPerUpgrade;
     public int MoneyPerCompany;
 
+    public int SetCompanyValue;
+    public int SetUpgradeValue;
     public int CompanyValue;
     public int UpgradeValue;
 
@@ -40,6 +42,8 @@ public class EnergyItens : MonoBehaviour {
         {
             Debug.Log("The script energy dont find the Game Object 'ItensRequirementManager'");
         }
+        SetCompanyValue = CompanyValue;
+        SetUpgradeValue = UpgradeValue;
     }
 
     void Update()
@@ -56,7 +60,7 @@ public class EnergyItens : MonoBehaviour {
         {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
-            CompanyValue += CompanyValue / 2;
+            CompanyValue = CompanyValue * NumberOfCompany * (3 / 2);
             allPoints.AddPopulation(afectPopulation);
             allPoints.AddNature(afectNature);
             allPoints.AddPower(afectEnergy);
@@ -72,7 +76,7 @@ public class EnergyItens : MonoBehaviour {
         if (requirement.requirement == "")
         {
             allPoints.money -= UpgradeValue;
-            NumberOfUpgrades += number;
+            CompanyValue = CompanyValue * NumberOfCompany * (3 / 2);
             UpgradeValue += UpgradeValue / 2;
             allPoints.AddPopulation(afectPopulation / 2);
             allPoints.AddNature(afectNature / 2);

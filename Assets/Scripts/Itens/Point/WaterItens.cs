@@ -12,6 +12,8 @@ public class WaterItens : MonoBehaviour {
     public int MoneyPerUpgrade;
     public int MoneyPerCompany;
 
+    public int SetCompanyValue;
+    public int SetUpgradeValue;
     public int CompanyValue;
     public int UpgradeValue;
 
@@ -40,6 +42,8 @@ public class WaterItens : MonoBehaviour {
         {
             Debug.Log("The script water dont find the Game Object 'ItensRequirementManager'");
         }
+        SetCompanyValue = CompanyValue;
+        SetUpgradeValue = UpgradeValue;
     }
 
     void Update()
@@ -56,7 +60,7 @@ public class WaterItens : MonoBehaviour {
         {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
-            CompanyValue += CompanyValue / 2;
+            CompanyValue = CompanyValue * NumberOfCompany * (3 / 2);
             allPoints.AddNature(afectNature);
             allPoints.AddWater(afectWater);
             allPoints.AddPopulation(afectPopulation);
@@ -73,7 +77,7 @@ public class WaterItens : MonoBehaviour {
         {
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
-            UpgradeValue += UpgradeValue / 2;
+            UpgradeValue = UpgradeValue * NumberOfUpgrades * (3 / 2);
             allPoints.AddNature(afectNature / 2);
             allPoints.AddWater(afectWater / 2);
             allPoints.AddPopulation(afectPopulation / 2);

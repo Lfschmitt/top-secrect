@@ -12,6 +12,8 @@ public class FoodItens : MonoBehaviour {
     public int MoneyPerUpgrade;
     public int MoneyPerCompany;
 
+    public int SetCompanyValue;
+    public int SetUpgradeValue;
     public int CompanyValue;
     public int UpgradeValue;
 
@@ -41,6 +43,8 @@ public class FoodItens : MonoBehaviour {
         {
             Debug.Log("The script food dont find the Game Object 'ItensRequirementManager'");
         }
+        SetCompanyValue = CompanyValue;
+        SetUpgradeValue = UpgradeValue;
     }
 
     void Update()
@@ -57,7 +61,7 @@ public class FoodItens : MonoBehaviour {
         {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
-            CompanyValue += CompanyValue / 2;
+            CompanyValue = CompanyValue * NumberOfCompany * (3 / 2);
             allPoints.AddNature(afectNature);
             allPoints.Addfood(afectFood);
             allPoints.AddPower(afectEnergy);
@@ -75,7 +79,7 @@ public class FoodItens : MonoBehaviour {
         {
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
-            UpgradeValue += UpgradeValue / 2;
+            UpgradeValue = UpgradeValue * NumberOfUpgrades * (3 / 2);
             allPoints.AddNature(afectNature / 2);
             allPoints.Addfood(afectFood / 2);
             allPoints.AddPower(afectEnergy / 2);
