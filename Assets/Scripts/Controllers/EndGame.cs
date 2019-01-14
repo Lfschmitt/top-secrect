@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EndGame : MonoBehaviour {
 
+    private AlertButton alertButton;
     private AllPoints allPoints;
     private LevelManager levelManager;
     private TimeController timeController;
@@ -34,10 +35,15 @@ public class EndGame : MonoBehaviour {
         {
             Debug.Log("The game object -PoitsController- not find in scene");
         }
+        alertButton = GameObject.Find("LevelManager").GetComponent<AlertButton>();
+        if (alertButton == null)
+        {
+            Debug.Log("The object -LevelManager- Dont find in scene");
+        }
 
     }
-		
-	void Update () {
+
+    void Update () {
         ReadPoints();
         //Ganhou
         if (tec > 700 && sci > 700 && pop > 700 && nat > 700)
@@ -88,7 +94,7 @@ public class EndGame : MonoBehaviour {
             Destruction("Ditadura");
 
         //Planeta morreu
-        if (nat < 10)
+        if (nat < 10 || water < 10)
             Destruction("Your planet is dead");
 
         //A populaçao morreu
@@ -97,9 +103,15 @@ public class EndGame : MonoBehaviour {
 
         //Energia abaixo dos Necessario
         if (tec > power + 150 || pop > power + 200 || food > power + 200)
+        {
             moneyCollect.FreezeEconomy(true);
+            alertButton.SetButton(true);
+        }
         else
+        {
             moneyCollect.FreezeEconomy(false);
+            alertButton.SetButton(false);
+        }
     }
 
     void ReadPoints()
