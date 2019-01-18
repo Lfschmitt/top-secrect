@@ -6,7 +6,6 @@ public class ShopManager : MonoBehaviour {
 
     public Text writePoint;
     public Text money;
-
     public Text upgradeCostText;
     public Text buyCostText;
     public Text numberUpgrades;
@@ -18,7 +17,6 @@ public class ShopManager : MonoBehaviour {
 
     public int count;
     private AllPoints allPoints;
-
     private int distance;
     private int steps;
     private TechnologyItens technology;
@@ -30,9 +28,11 @@ public class ShopManager : MonoBehaviour {
     private NatureItens nature;
     private EnergyItens energy;
 
-    void Start () {
-        allPoints = GameObject.Find("PointsController").GetComponent<AllPoints>();
+    public ColorActivity companyButton;
+    public ColorActivity upgradeButton;
 
+    void Start () {
+        allPoints = GameObject.Find("PointsController").GetComponent<AllPoints>();      
         technology = GameObject.Find("ItensBuyManager").GetComponent<TechnologyItens>();
         science = GameObject.Find("ItensBuyManager").GetComponent<ScienceItens>();
         army = GameObject.Find("ItensBuyManager").GetComponent<ArmyItens>();
@@ -41,6 +41,9 @@ public class ShopManager : MonoBehaviour {
         population = GameObject.Find("ItensBuyManager").GetComponent<PopulationsItens>();
         nature = GameObject.Find("ItensBuyManager").GetComponent<NatureItens>();
         energy = GameObject.Find("ItensBuyManager").GetComponent<EnergyItens>();
+
+        //companyButton = GameObject.Find("CompanyButton").GetComponent<ColorActivity>();
+        //upgradeButton = GameObject.Find("UpgradeButton").GetComponent<ColorActivity>();
     }
 	
 	void Update () {
@@ -80,6 +83,17 @@ public class ShopManager : MonoBehaviour {
 
     void EnableTechnology()
     {
+        if (allPoints.money >= technology.CompanyValue)
+            companyButton.NormalButton();
+        else
+            companyButton.RedButton();
+
+        if (allPoints.money >= technology.UpgradeValue)
+            upgradeButton.NormalButton();
+        else
+            upgradeButton.RedButton();
+
+
         writePoint.text = "Technology";
         Button.text = "Buy Company";
         upgradeCostText.text = "Cost " + technology.UpgradeValue;
@@ -90,6 +104,16 @@ public class ShopManager : MonoBehaviour {
     }
     void EnableScience()
     {
+        if (allPoints.money >= science.CompanyValue)
+            companyButton.NormalButton();
+        else
+            companyButton.RedButton();
+
+        if (allPoints.money >= science.UpgradeValue)
+            upgradeButton.NormalButton();
+        else
+            upgradeButton.RedButton();
+
         writePoint.text = "Science";
         Button.text = "Buy Lab";
         upgradeCostText.text = "Cost " + science.UpgradeValue;
@@ -100,6 +124,16 @@ public class ShopManager : MonoBehaviour {
     }
     void EnableArmy()
     {
+        if (allPoints.money >= army.CompanyValue)
+            companyButton.NormalButton();
+        else
+            companyButton.RedButton();
+
+        if (allPoints.money >= army.UpgradeValue)
+            upgradeButton.NormalButton();
+        else
+            upgradeButton.RedButton();
+
         Button.text = "Buy Soldiers";
         writePoint.text = "Army";
         upgradeCostText.text = "Cost " + army.UpgradeValue;
@@ -110,6 +144,16 @@ public class ShopManager : MonoBehaviour {
     }
     void EnableFood()
     {
+        if (allPoints.money >= food.CompanyValue)
+            companyButton.NormalButton();
+        else
+            companyButton.RedButton();
+
+        if (allPoints.money >= food.UpgradeValue)
+            upgradeButton.NormalButton();
+        else
+            upgradeButton.RedButton();
+
         writePoint.text = "Food";
         Button.text = "Buy Fast-Food";
         upgradeCostText.text = "Cost " + food.UpgradeValue;
@@ -120,6 +164,17 @@ public class ShopManager : MonoBehaviour {
     }
     void EnableWater()
     {
+        if (allPoints.money >= water.CompanyValue)
+            companyButton.NormalButton();
+        else
+            companyButton.RedButton();
+
+        if (allPoints.money >= water.UpgradeValue)
+            upgradeButton.NormalButton();
+        else
+            upgradeButton.RedButton();
+
+
         writePoint.text = "Water";
         Button.text = "Clear Rivers";
         upgradeCostText.text = "Cost " + water.UpgradeValue;
@@ -130,6 +185,16 @@ public class ShopManager : MonoBehaviour {
     }
     void EnablePopulation()
     {
+        if (allPoints.money >= population.CompanyValue)
+            companyButton.NormalButton();
+        else
+            companyButton.RedButton();
+
+        if (allPoints.money >= population.UpgradeValue)
+            upgradeButton.NormalButton();
+        else
+            upgradeButton.RedButton();
+
         writePoint.text = "Population";
         Button.text = "Buy Homes";
         upgradeCostText.text = "Cost " + population.UpgradeValue;
@@ -140,6 +205,16 @@ public class ShopManager : MonoBehaviour {
     }
     void EnableNature()
     {
+        if (allPoints.money >= nature.CompanyValue)
+            companyButton.NormalButton();
+        else
+            companyButton.RedButton();
+
+        if (allPoints.money >= nature.UpgradeValue)
+            upgradeButton.NormalButton();
+        else
+            upgradeButton.RedButton();
+
         writePoint.text = "Nature";
         Button.text = "Buy Nature";
         upgradeCostText.text = "Cost " + nature.UpgradeValue;
@@ -150,6 +225,16 @@ public class ShopManager : MonoBehaviour {
     }
     void EnablePower()
     {
+        if (allPoints.money >= energy.CompanyValue)
+            companyButton.NormalButton();
+        else
+            companyButton.RedButton();
+
+        if (allPoints.money >= energy.UpgradeValue)
+            upgradeButton.NormalButton();
+        else
+            upgradeButton.RedButton();
+
         writePoint.text = "Energy";
         Button.text = "Buy Company";
         upgradeCostText.text = "Cost " + energy.UpgradeValue;

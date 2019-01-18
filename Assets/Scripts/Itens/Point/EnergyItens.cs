@@ -60,7 +60,7 @@ public class EnergyItens : MonoBehaviour {
         {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
-            CompanyValue = CompanyValue * NumberOfCompany * (3 / 2);
+            CompanyValue += SetCompanyValue;
             allPoints.AddPopulation(afectPopulation);
             allPoints.AddNature(afectNature);
             allPoints.AddPower(afectEnergy);
@@ -76,8 +76,8 @@ public class EnergyItens : MonoBehaviour {
         if (requirement.requirement == "")
         {
             allPoints.money -= UpgradeValue;
-            CompanyValue = CompanyValue * NumberOfCompany * (3 / 2);
-            UpgradeValue += UpgradeValue / 2;
+            NumberOfUpgrades += number;
+            UpgradeValue += SetCompanyValue;
             allPoints.AddPopulation(afectPopulation / 2);
             allPoints.AddNature(afectNature / 2);
             allPoints.AddPower(afectEnergy / 2);

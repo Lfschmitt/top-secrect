@@ -9,6 +9,7 @@ public class EndGame : MonoBehaviour {
     private LevelManager levelManager;
     private TimeController timeController;
     private MoneyCollect moneyCollect;
+    private FinishGame finishGame;
     private int tec;
     private int sci;
     private int army;
@@ -20,6 +21,7 @@ public class EndGame : MonoBehaviour {
 
     void Start () {
         allPoints = GetComponent<AllPoints>();
+        finishGame = GetComponent<FinishGame>();
         levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
         if(levelManager == null)
         {
@@ -46,47 +48,47 @@ public class EndGame : MonoBehaviour {
     void Update () {
         ReadPoints();
         //Ganhou
-        if (tec > 700 && sci > 700 && pop > 700 && nat > 700)
-            FinishGame("Your planet is work", true, timeController.totalDays);
+        if (tec > 700 && sci > 700 && pop > 700 && nat > 600 && water > 600)
+            FinishGame("Your planet is work", timeController.totalDays);
 
         //Ganhou
-        if (tec > 950 && sci > 950 && nat > 800)
-            FinishGame("You got a perfect Planet", true, timeController.totalDays);
+        if (tec > 950 && sci > 950 && nat > 800 && water > 700)
+            FinishGame("You got a perfect Planet", timeController.totalDays);
 
         //Destruição por poluição
-        if (tec>500 && pop>500 && nat<300)
+        if (tec>500 && pop>300 && nat<300)
             Destruction("Destruição por poluição (Muitos Prédios)");
 
         //Greve Da Raça humana
-        if (tec<400 && sci<400 && food<(pop-200) && water<(pop-200) && pop>600 && nat<200)
+        if (tec<500 && sci<500 && food<(pop-200) && water<(pop-200) && pop>400 && nat<300)
             Destruction("Greve Da Raça humana(População muito infeliz)");
 
         //Falta de população
-        if((tec>400 || sci>400) && pop < 400)
+        if(tec - pop > 200 || sci - pop > 200)
             Destruction("Falta de população (Pouca estrutura para ter pessoas)");
 
         //Falta de comida
-        if ((tec>300 || sci>300) && food<(pop-300) && pop>500 && nat<400)
+        if ((tec>250 || sci>250) && food<(pop-200) &&  nat<500)
             Destruction("Falta de comida");
 
         //Falta de água
-        if ((tec>300 || sci>350) && water<(pop-300) && pop>500 && nat<400)
+        if ((tec>300 || sci>350) && water<(pop-200) && nat<400)
             Destruction("Falta de água");
 
         //Apocalipse
-        if (sci>800 && army<500 && pop>500)
+        if (sci>500 && army<500 && pop>300)
             Destruction("Apocalipse");
 
         //Tecnolipse
-        if (tec>800 && army<500 && pop>500)
+        if (tec>500 && army<500 && pop>300)
             Destruction("Tecnolipse");
 
         //Destruição por raça alienígena
-        if ((tec<600 && sci<600 && army<400 && water>400 && pop>500) || timeController.totalDays == 1000)
+        if ((tec<400 && sci<400 && army<400 && water>800 && pop>500) || timeController.totalDays == 1000)
             Destruction("Destruição por raça alienígena");
 
         //Destruição por outra espécie
-        if (sci<300 && army<300 && food>300 && nat>600)
+        if (army<300 && food>300 && nat>600)
             Destruction("Destruição por outra espécie");
 
         //Ditadura  
@@ -102,7 +104,7 @@ public class EndGame : MonoBehaviour {
             Destruction("You dont Have peoples for your planets");
 
         //Energia abaixo dos Necessario
-        if (tec > power + 150 || pop > power + 200 || food > power + 200)
+        if (tec > power + 150 || sci > power + 150 || pop > power + 200 || food > power + 200)
         {
             moneyCollect.FreezeEconomy(true);
             alertButton.SetButton(true);
@@ -136,22 +138,12 @@ public class EndGame : MonoBehaviour {
 
     void Destruction(string name)
     {
-        Debug.Log(name);
-        CallPanel(name, true);
-        TimeGame(0);
-    }
-    void FinishGame(string name, bool ft, int Days)
-    {
-        levelManager.Panel(name, ft, 1, Days);
+        //CallPanel(name, true);
+        finishGame.LoseGame(name);
     }
 
-    void CallPanel(string name, bool ft)
+    void FinishGame(string name, int days)
     {
-        levelManager.Panel(name, ft, 0, 0);
-    }
-
-    public void TimeGame(int time)
-    {
-        Time.timeScale = time;
+        finishGame.WinGame(days, name);
     }
 }

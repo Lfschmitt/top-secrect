@@ -76,14 +76,6 @@ public class WorldController : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            for(int x = 0; x < technology.Length; x++)
-            {
-                technology[x].SetActive(false);
-            }
-        }
-
     }
     void ChangeScience()
     {
@@ -111,14 +103,6 @@ public class WorldController : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            for (int x = 0; x < science.Length; x++)
-            {
-                science[x].SetActive(false);
-            }
-        } 
-
     }
     void ChangeWater()
     {
@@ -160,7 +144,7 @@ public class WorldController : MonoBehaviour
     }
     void ChangePopulation()
     {
-        if (populationLevel >= 1)
+        if (populationLevel > 1)
         {
             population[0].SetActive(true);
             if (populationLevel >= 2)
@@ -184,13 +168,6 @@ public class WorldController : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            for (int x = 0; x < population.Length; x++)
-            {
-                population[x].SetActive(false);
-            }
-        }
     }
     void ChangeEnergy()
     {
@@ -211,11 +188,31 @@ public class WorldController : MonoBehaviour
                 }
             }
         }
-        else
+    }
+
+    public void ResetWorld()
+    {
+        for (int x = 0; x < energy.Length; x++)
         {
-            for (int x = 0; x < energy.Length; x++)
+            energy[x].SetActive(false);
+        }
+
+        {
+            for (int x = 0; x < population.Length; x++)
             {
-                energy[x].SetActive(false);
+                population[x].SetActive(false);
+            }
+        }
+        {
+            for (int x = 0; x < science.Length; x++)
+            {
+                science[x].SetActive(false);
+            }
+        }
+        {
+            for (int x = 0; x < technology.Length; x++)
+            {
+                technology[x].SetActive(false);
             }
         }
     }

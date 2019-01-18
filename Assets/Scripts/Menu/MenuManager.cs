@@ -8,15 +8,12 @@ public class MenuManager : MonoBehaviour {
 
     public Text confirmText;
     public GameObject confirmPanel;
-    public GameObject menu;
-    public GameObject panel1;
-    public GameObject panel2;
 
     private SaveController saveController;
 
     private void Start()
     {
-        saveController = GameObject.Find("PointsController").GetComponent<SaveController>();
+        saveController = GameObject.Find("LevelManager").GetComponent<SaveController>();
     }
 
     public void StartGame() {
@@ -27,7 +24,7 @@ public class MenuManager : MonoBehaviour {
         }
         else
         {
-            SetMenu(false);
+            ChangeScene(true); ;
         }
     }
 
@@ -35,31 +32,32 @@ public class MenuManager : MonoBehaviour {
     {
         if(PlayerPrefs.GetInt("SaveGame") == 1)
         {
-            saveController.LoadData();
-            SetMenu(false);
+            ChangeScene(false);
         }
     }
 
     public void NewGame()
     {
-        saveController.DeleteData();
-        saveController.ResetData();
-        saveController.SaveData();
         PlayerPrefs.SetInt("SaveGame", 1);
-        SetMenu(false);
+        ChangeScene(true);
     }
 
     public void SetPanelConfirm(bool Bool)
     {
         confirmPanel.SetActive(Bool);
     }
-    public void SetMenu(bool Bool)
+
+    public void ChangeScene(bool newGame )
     {
-        menu.SetActive(Bool);
-    }
-    public void DisableEndScreens()
-    {
-        panel1.SetActive(false);
-        panel2.SetActive(false);
+        if(newGame == true)
+        {
+            PlayerPrefs.SetInt("NewGame", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("NewGame", 0);
+        }
+        SceneManager.LoadScene("World");
+        SceneManager.UnloadSceneAsync("Menu");
     }
 }

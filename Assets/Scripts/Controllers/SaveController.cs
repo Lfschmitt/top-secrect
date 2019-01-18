@@ -5,6 +5,7 @@ using UnityEngine;
 public class SaveController : MonoBehaviour {
 
     private AllPoints allPoints;
+    private RandonDestroy randonDestroy;
     private TimeController timeController;
     private TechnologyItens technology;
     private ScienceItens science;
@@ -14,13 +15,19 @@ public class SaveController : MonoBehaviour {
     private PopulationsItens population;
     private NatureItens nature;
     private EnergyItens energy;
+    private WorldController worldController;
 
     void Start()
     {
         allPoints = GetComponent<AllPoints>();
+        randonDestroy = GetComponent<RandonDestroy>();
         timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
         if (timeController == null)
             Debug.Log("The object 'TimeController' not find in scene");
+
+        worldController = GameObject.Find("LevelManager").GetComponent<WorldController>();
+        if (worldController == null)
+            Debug.Log("The object 'LevelManager' not find in scene");
 
         technology = GameObject.Find("ItensBuyManager").GetComponent<TechnologyItens>();
         science = GameObject.Find("ItensBuyManager").GetComponent<ScienceItens>();
@@ -30,6 +37,18 @@ public class SaveController : MonoBehaviour {
         population = GameObject.Find("ItensBuyManager").GetComponent<PopulationsItens>();
         nature = GameObject.Find("ItensBuyManager").GetComponent<NatureItens>();
         energy = GameObject.Find("ItensBuyManager").GetComponent<EnergyItens>();
+
+        if(PlayerPrefs.GetInt("NewGame") == 1)
+        {
+            randonDestroy.LotteryNumbers();
+            DeleteData();
+            ResetData();
+            SaveData();
+        }
+        else
+        {
+            LoadData();
+        }
     }
 
     public void SaveData()
@@ -63,6 +82,13 @@ public class SaveController : MonoBehaviour {
         PlayerPrefs.SetInt("NatureNumberOfUpgrade", nature.NumberOfUpgrades);
         PlayerPrefs.SetInt("EnergyNumberOfCompany", energy.NumberOfCompany);
         PlayerPrefs.SetInt("EnregyNumberOfUpgrade", energy.NumberOfUpgrades);
+
+        PlayerPrefs.SetInt("Destroy1", randonDestroy.destroy1);
+        PlayerPrefs.SetInt("Destroy2", randonDestroy.destroy2);
+        PlayerPrefs.SetInt("Destroy3", randonDestroy.destroy3);
+        PlayerPrefs.SetInt("Destroy4", randonDestroy.destroy4);
+        PlayerPrefs.SetInt("Destroy5", randonDestroy.destroy5);
+        PlayerPrefs.SetInt("Destroy6", randonDestroy.destroy6);
     }
 
     public void LoadData()
@@ -95,6 +121,13 @@ public class SaveController : MonoBehaviour {
         nature.NumberOfUpgrades = PlayerPrefs.GetInt("NatureNumberOfUpgrade");
         energy.NumberOfCompany = PlayerPrefs.GetInt("EnergyNumberOfCompany");
         energy.NumberOfUpgrades = PlayerPrefs.GetInt("EnregyNumberOfUpgrade");
+
+        randonDestroy.destroy1 = PlayerPrefs.GetInt("Destroy1");
+        randonDestroy.destroy2 = PlayerPrefs.GetInt("Destroy2");
+        randonDestroy.destroy3 = PlayerPrefs.GetInt("Destroy3");
+        randonDestroy.destroy4 = PlayerPrefs.GetInt("Destroy4");
+        randonDestroy.destroy5 = PlayerPrefs.GetInt("Destroy5");
+        randonDestroy.destroy6 = PlayerPrefs.GetInt("Destroy6");
     }
 
     public void DeleteData()
@@ -148,5 +181,9 @@ public class SaveController : MonoBehaviour {
         energy.UpgradeValue = energy.SetUpgradeValue;
         energy.NumberOfCompany = 0;
         energy.NumberOfUpgrades = 0;
+
+        worldController.ResetWorld();
+
+        randonDestroy.LotteryNumbers();
     }
 }

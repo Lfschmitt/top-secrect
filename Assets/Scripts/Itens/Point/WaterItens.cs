@@ -60,7 +60,7 @@ public class WaterItens : MonoBehaviour {
         {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
-            CompanyValue = CompanyValue * NumberOfCompany * (3 / 2);
+            CompanyValue += SetCompanyValue;
             allPoints.AddNature(afectNature);
             allPoints.AddWater(afectWater);
             allPoints.AddPopulation(afectPopulation);
@@ -77,7 +77,7 @@ public class WaterItens : MonoBehaviour {
         {
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
-            UpgradeValue = UpgradeValue * NumberOfUpgrades * (3 / 2);
+            UpgradeValue += SetUpgradeValue;
             allPoints.AddNature(afectNature / 2);
             allPoints.AddWater(afectWater / 2);
             allPoints.AddPopulation(afectPopulation / 2);

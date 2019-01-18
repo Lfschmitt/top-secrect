@@ -61,7 +61,7 @@ public class FoodItens : MonoBehaviour {
         {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
-            CompanyValue = CompanyValue * NumberOfCompany * (3 / 2);
+            CompanyValue += SetCompanyValue;
             allPoints.AddNature(afectNature);
             allPoints.Addfood(afectFood);
             allPoints.AddPower(afectEnergy);
@@ -79,7 +79,7 @@ public class FoodItens : MonoBehaviour {
         {
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
-            UpgradeValue = UpgradeValue * NumberOfUpgrades * (3 / 2);
+            UpgradeValue += SetUpgradeValue;
             allPoints.AddNature(afectNature / 2);
             allPoints.Addfood(afectFood / 2);
             allPoints.AddPower(afectEnergy / 2);

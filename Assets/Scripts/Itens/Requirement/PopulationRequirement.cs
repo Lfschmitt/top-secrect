@@ -24,15 +24,15 @@ public class PopulationRequirement : MonoBehaviour {
         {
             requirement = "Need Nature";
         }
-        else if (allPoints.population + population.afectFood < 0)
+        else if (allPoints.food + population.afectFood < 0)
         {
             requirement = "Need Food";
         }
-        else if (allPoints.population + population.afectWater < 0)
+        else if (allPoints.water + population.afectWater < 0)
         {
             requirement = "Need water";
         }
-        else if (allPoints.population + population.afectArmy < 0)
+        else if (allPoints.army + population.afectArmy < 0)
         {
             requirement = "Need Army";
         }

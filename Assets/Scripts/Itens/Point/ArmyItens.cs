@@ -62,7 +62,7 @@ public class ArmyItens : MonoBehaviour {
         {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
-            CompanyValue = CompanyValue * NumberOfCompany * (3/2);
+            CompanyValue += SetCompanyValue;
             allPoints.AddArmy(afectArmy);
             allPoints.Addfood(afectFood);
             allPoints.AddWater(afectWater);
@@ -80,7 +80,7 @@ public class ArmyItens : MonoBehaviour {
         {
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
-            UpgradeValue = UpgradeValue * NumberOfUpgrades * (3 / 2);
+            UpgradeValue += SetUpgradeValue;
             allPoints.AddArmy(afectArmy / 2);
             allPoints.Addfood(afectFood / 2);
             allPoints.AddWater(afectWater / 2);
