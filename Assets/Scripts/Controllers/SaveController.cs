@@ -6,6 +6,7 @@ public class SaveController : MonoBehaviour {
 
     private AllPoints allPoints;
     private RandonDestroy randonDestroy;
+    private RemovePointsController removePoints;
     private TimeController timeController;
     private TechnologyItens technology;
     private ScienceItens science;
@@ -17,10 +18,14 @@ public class SaveController : MonoBehaviour {
     private EnergyItens energy;
     private WorldController worldController;
 
+    private int music;
+    private int sound;
+
     void Start()
     {
         allPoints = GetComponent<AllPoints>();
         randonDestroy = GetComponent<RandonDestroy>();
+        removePoints = GetComponent<RemovePointsController>();
         timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
         if (timeController == null)
             Debug.Log("The object 'TimeController' not find in scene");
@@ -28,7 +33,7 @@ public class SaveController : MonoBehaviour {
         worldController = GameObject.Find("LevelManager").GetComponent<WorldController>();
         if (worldController == null)
             Debug.Log("The object 'LevelManager' not find in scene");
-
+        
         technology = GameObject.Find("ItensBuyManager").GetComponent<TechnologyItens>();
         science = GameObject.Find("ItensBuyManager").GetComponent<ScienceItens>();
         army = GameObject.Find("ItensBuyManager").GetComponent<ArmyItens>();
@@ -41,13 +46,29 @@ public class SaveController : MonoBehaviour {
         if(PlayerPrefs.GetInt("NewGame") == 1)
         {
             randonDestroy.LotteryNumbers();
+            SavePrefabs("Save");
             DeleteData();
             ResetData();
+            SavePrefabs("Load");
             SaveData();
         }
         else
         {
             LoadData();
+        }
+    }
+
+    private void SavePrefabs(string name)
+    {
+        if (name == "Save")
+        {
+            music = PlayerPrefs.GetInt("Music");
+            sound = PlayerPrefs.GetInt("Sound");
+        }
+        else if (name == "Load")
+        {
+            PlayerPrefs.SetInt("Music", music);
+            PlayerPrefs.SetInt("Sound", sound);
         }
     }
 
@@ -184,6 +205,7 @@ public class SaveController : MonoBehaviour {
 
         worldController.ResetWorld();
 
+        removePoints.totalDays = timeController.totalDays + removePoints.eachDays;
         randonDestroy.LotteryNumbers();
     }
 }

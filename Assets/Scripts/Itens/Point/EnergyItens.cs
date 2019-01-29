@@ -25,6 +25,8 @@ public class EnergyItens : MonoBehaviour {
     public InstatiateErrorMessage errorMessage;
     private EnergyRequirement requirement;
 
+    private MusicController musicController;
+
     private void Start()
     {
         allPoints = GameObject.Find("PointsController").GetComponent<AllPoints>();
@@ -42,6 +44,7 @@ public class EnergyItens : MonoBehaviour {
         {
             Debug.Log("The script energy dont find the Game Object 'ItensRequirementManager'");
         }
+        musicController = GameObject.Find("LevelManager").GetComponent<MusicController>();
         SetCompanyValue = CompanyValue;
         SetUpgradeValue = UpgradeValue;
     }
@@ -58,6 +61,7 @@ public class EnergyItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
+            musicController.CoinSound();
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
@@ -67,6 +71,7 @@ public class EnergyItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }
@@ -75,6 +80,7 @@ public class EnergyItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
+            musicController.CoinSound();
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
             UpgradeValue += SetCompanyValue;
@@ -84,6 +90,7 @@ public class EnergyItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }

@@ -17,7 +17,7 @@ public class RemovePointsController : MonoBehaviour {
     public int energy;
 
     public int eachDays;
-    private int totalDays;
+    public int totalDays;
 
 	void Start () {
         allPoints = GetComponent<AllPoints>();

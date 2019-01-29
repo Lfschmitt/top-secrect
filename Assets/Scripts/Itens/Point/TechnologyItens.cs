@@ -26,6 +26,8 @@ public class TechnologyItens : MonoBehaviour {
     public InstatiateErrorMessage errorMessage;
     private TechnologyRequirement requirement;
 
+    private MusicController musicController;
+
     private void Start()
     {
         allPoints = GameObject.Find("PointsController").GetComponent<AllPoints>();
@@ -43,6 +45,7 @@ public class TechnologyItens : MonoBehaviour {
         {
             Debug.Log("The script technology dont find the Game Object 'ItensRequirementManager'");
         }
+        musicController = GameObject.Find("LevelManager").GetComponent<MusicController>();
         SetCompanyValue = CompanyValue;
         SetUpgradeValue = UpgradeValue;
     }
@@ -58,6 +61,7 @@ public class TechnologyItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
+            musicController.CoinSound();
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
@@ -68,6 +72,7 @@ public class TechnologyItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }
@@ -76,6 +81,7 @@ public class TechnologyItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
+            musicController.CoinSound();
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
             UpgradeValue += SetUpgradeValue;
@@ -86,6 +92,7 @@ public class TechnologyItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }

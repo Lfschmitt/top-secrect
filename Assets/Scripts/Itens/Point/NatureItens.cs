@@ -26,6 +26,8 @@ public class NatureItens : MonoBehaviour {
     public InstatiateErrorMessage errorMessage;
     private NatureRequirement requirement;
 
+    private MusicController musicController;
+
     private void Start()
     {
         allPoints = GameObject.Find("PointsController").GetComponent<AllPoints>();
@@ -43,6 +45,7 @@ public class NatureItens : MonoBehaviour {
         {
             Debug.Log("The script nature dont find the Game Object 'ItensRequirementManager'");
         }
+        musicController = GameObject.Find("LevelManager").GetComponent<MusicController>();
         SetCompanyValue = CompanyValue;
         SetUpgradeValue = UpgradeValue;
     }
@@ -59,6 +62,7 @@ public class NatureItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
+            musicController.CoinSound();
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
@@ -68,6 +72,7 @@ public class NatureItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }
@@ -76,6 +81,7 @@ public class NatureItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
+            musicController.CoinSound();
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
             UpgradeValue += SetUpgradeValue;
@@ -85,6 +91,7 @@ public class NatureItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }

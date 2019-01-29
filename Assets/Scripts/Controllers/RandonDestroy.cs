@@ -14,9 +14,12 @@ public class RandonDestroy : MonoBehaviour {
     private TimeController timeController;
     private AllPoints allPoints;
 
+    private Vibration vibration;
+
     void Start () {
         allPoints = GetComponent<AllPoints>();
         timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
+        vibration = GetComponent<Vibration>();
     }
 	
 	void Update () {
@@ -46,12 +49,18 @@ public class RandonDestroy : MonoBehaviour {
 
     public void EnablePanel(bool name)
     {
+        if (!name)
+            vibration.vibrate = true;
+        else
+            vibration.Vibrate();
+
         panel.SetActive(name);
     }
 
     private void Tsunami()
     {
         EnablePanel(true);
+        vibration.Vibrate();
         text.text = "some cities were hit by a tsunami the planet's status suffered a little";
         allPoints.AddPopulation(-30);
         allPoints.AddNature(-30);
@@ -66,6 +75,7 @@ public class RandonDestroy : MonoBehaviour {
     private void Earthquake()
     {
         EnablePanel(true);
+        vibration.Vibrate();
         text.text = "an earthquake hit your population and caused many deaths";
         allPoints.AddPopulation(-30);
         allPoints.AddNature(-30);
@@ -81,6 +91,7 @@ public class RandonDestroy : MonoBehaviour {
     private void Storm()
     {
         EnablePanel(true);
+        vibration.Vibrate();
         text.text = "some generators of ernergia were hit by a storm and were turned off";
         allPoints.AddPower(-50);
 
@@ -94,6 +105,7 @@ public class RandonDestroy : MonoBehaviour {
     private void SeaQuake()
     {
         EnablePanel(true);
+        vibration.Vibrate();
         text.text = "a seaquake invaded some food stocks and ended up spoiling them";
         allPoints.Addfood(-40);
 
@@ -107,6 +119,7 @@ public class RandonDestroy : MonoBehaviour {
     private void Eruption()
     {
         EnablePanel(true);
+        vibration.Vibrate();
         text.text = "a volcano erupted and deforested large areas with nature";
         allPoints.AddNature(-75);
 
@@ -120,6 +133,7 @@ public class RandonDestroy : MonoBehaviour {
     private void Hurricane()
     {
         EnablePanel(true);
+        vibration.Vibrate();
         text.text = "a hurricane destroyed some house and left many people injured";
         allPoints.AddPopulation(-50);
 

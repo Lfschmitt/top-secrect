@@ -14,6 +14,8 @@ public class ShopManager : MonoBehaviour {
     public Text Button;
     public Text errorText;
     public GameObject error;
+    public Sprite[] spriteIcons;
+    public Image icons;
 
     public int count;
     private AllPoints allPoints;
@@ -27,6 +29,7 @@ public class ShopManager : MonoBehaviour {
     private PopulationsItens population;
     private NatureItens nature;
     private EnergyItens energy;
+
 
     public ColorActivity companyButton;
     public ColorActivity upgradeButton;
@@ -93,7 +96,7 @@ public class ShopManager : MonoBehaviour {
         else
             upgradeButton.RedButton();
 
-
+        icons.sprite = spriteIcons[count];
         writePoint.text = "Technology";
         Button.text = "Buy Company";
         upgradeCostText.text = "Cost " + technology.UpgradeValue;
@@ -114,6 +117,7 @@ public class ShopManager : MonoBehaviour {
         else
             upgradeButton.RedButton();
 
+        icons.sprite = spriteIcons[count];
         writePoint.text = "Science";
         Button.text = "Buy Lab";
         upgradeCostText.text = "Cost " + science.UpgradeValue;
@@ -134,6 +138,7 @@ public class ShopManager : MonoBehaviour {
         else
             upgradeButton.RedButton();
 
+        icons.sprite = spriteIcons[count];
         Button.text = "Buy Soldiers";
         writePoint.text = "Army";
         upgradeCostText.text = "Cost " + army.UpgradeValue;
@@ -154,6 +159,7 @@ public class ShopManager : MonoBehaviour {
         else
             upgradeButton.RedButton();
 
+        icons.sprite = spriteIcons[count];
         writePoint.text = "Food";
         Button.text = "Buy Fast-Food";
         upgradeCostText.text = "Cost " + food.UpgradeValue;
@@ -174,7 +180,7 @@ public class ShopManager : MonoBehaviour {
         else
             upgradeButton.RedButton();
 
-
+        icons.sprite = spriteIcons[count];
         writePoint.text = "Water";
         Button.text = "Clear Rivers";
         upgradeCostText.text = "Cost " + water.UpgradeValue;
@@ -195,6 +201,7 @@ public class ShopManager : MonoBehaviour {
         else
             upgradeButton.RedButton();
 
+        icons.sprite = spriteIcons[count];
         writePoint.text = "Population";
         Button.text = "Buy Homes";
         upgradeCostText.text = "Cost " + population.UpgradeValue;
@@ -215,6 +222,7 @@ public class ShopManager : MonoBehaviour {
         else
             upgradeButton.RedButton();
 
+        icons.sprite = spriteIcons[count];
         writePoint.text = "Nature";
         Button.text = "Buy Nature";
         upgradeCostText.text = "Cost " + nature.UpgradeValue;
@@ -235,6 +243,7 @@ public class ShopManager : MonoBehaviour {
         else
             upgradeButton.RedButton();
 
+        icons.sprite = spriteIcons[count];
         writePoint.text = "Energy";
         Button.text = "Buy Company";
         upgradeCostText.text = "Cost " + energy.UpgradeValue;

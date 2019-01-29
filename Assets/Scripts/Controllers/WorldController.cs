@@ -25,9 +25,6 @@ public class WorldController : MonoBehaviour
     public Image nature;
     public Image water;
 
-    public int rotateSpeed;
-    public Transform satellite;
-
     void Start()
     {
         allPoints = GameObject.Find("PointsController").GetComponent<AllPoints>();
@@ -37,9 +34,6 @@ public class WorldController : MonoBehaviour
     {
         ReadValues();
         CallChanges();
-
-        satellite.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime);
-        //nature.sprite = natureSprites[];
     }
 
     void ReadValues()

@@ -26,6 +26,8 @@ public class ArmyItens : MonoBehaviour {
     public InstatiateErrorMessage errorMessage;
     private ArmyRequirement requirement;
 
+    private MusicController musicController;
+
     private void Start()
     {
         allPoints = GameObject.Find("PointsController").GetComponent<AllPoints>();
@@ -43,7 +45,7 @@ public class ArmyItens : MonoBehaviour {
         {
             Debug.Log("The script army dont find the Game Object 'ItensRequirementManager'");
         }
-
+        musicController = GameObject.Find("LevelManager").GetComponent<MusicController>();
         SetCompanyValue = CompanyValue;
         SetUpgradeValue = UpgradeValue;
     }
@@ -60,6 +62,7 @@ public class ArmyItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
+            musicController.CoinSound();
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
@@ -70,6 +73,7 @@ public class ArmyItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }
@@ -78,6 +82,7 @@ public class ArmyItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
+            musicController.CoinSound();
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
             UpgradeValue += SetUpgradeValue;
@@ -88,6 +93,7 @@ public class ArmyItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }

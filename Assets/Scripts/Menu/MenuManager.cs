@@ -8,12 +8,24 @@ public class MenuManager : MonoBehaviour {
 
     public Text confirmText;
     public GameObject confirmPanel;
+    public GameObject settingsPanel;
 
-    private SaveController saveController;
+    private MusicController musicController;
 
-    private void Start()
+    public Toggle toggleMusic;
+    public Toggle toggleSound;
+
+    private void Awake()
     {
-        saveController = GameObject.Find("LevelManager").GetComponent<SaveController>();
+        musicController = GetComponent<MusicController>();
+
+        if (PlayerPrefs.GetInt("Sound") == 1)
+            toggleSound.isOn = false;
+
+        if (PlayerPrefs.GetInt("Music") == 1)
+            toggleMusic.isOn = false;    
+
+        StartCoroutine(Music());
     }
 
     public void StartGame() {
@@ -47,6 +59,11 @@ public class MenuManager : MonoBehaviour {
         confirmPanel.SetActive(Bool);
     }
 
+    public void SettingsMenu(bool name)
+    {
+        settingsPanel.SetActive(name);
+    }
+
     public void ChangeScene(bool newGame )
     {
         if(newGame == true)
@@ -59,5 +76,11 @@ public class MenuManager : MonoBehaviour {
         }
         SceneManager.LoadScene("World");
         SceneManager.UnloadSceneAsync("Menu");
+    }
+
+    IEnumerator Music()
+    {
+        yield return new WaitForSeconds(1f);
+        musicController.SoundTheme("MenuTheme");        
     }
 }

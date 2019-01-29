@@ -26,6 +26,8 @@ public class ScienceItens : MonoBehaviour {
     public InstatiateErrorMessage errorMessage;
     private ScienceRequirement requirement;
 
+    private MusicController musicController;
+
     private void Start()
     {
         allPoints = GameObject.Find("PointsController").GetComponent<AllPoints>();
@@ -43,6 +45,7 @@ public class ScienceItens : MonoBehaviour {
         {
             Debug.Log("The script science dont find the Game Object 'ItensRequirementManager'");
         }
+        musicController = GameObject.Find("LevelManager").GetComponent<MusicController>();
         SetCompanyValue = CompanyValue;
         SetUpgradeValue = UpgradeValue;
     }
@@ -59,6 +62,7 @@ public class ScienceItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
+            musicController.CoinSound();
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
@@ -69,6 +73,7 @@ public class ScienceItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }
@@ -77,6 +82,7 @@ public class ScienceItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
+            musicController.CoinSound();
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
             UpgradeValue += SetUpgradeValue;
@@ -87,6 +93,7 @@ public class ScienceItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }

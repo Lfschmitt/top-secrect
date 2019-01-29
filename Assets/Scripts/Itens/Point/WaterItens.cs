@@ -25,6 +25,8 @@ public class WaterItens : MonoBehaviour {
     public InstatiateErrorMessage errorMessage;
     private WaterRequirement requirement;
 
+    private MusicController musicController;
+
     private void Start()
     {
         allPoints = GameObject.Find("PointsController").GetComponent<AllPoints>();
@@ -42,6 +44,7 @@ public class WaterItens : MonoBehaviour {
         {
             Debug.Log("The script water dont find the Game Object 'ItensRequirementManager'");
         }
+        musicController = GameObject.Find("LevelManager").GetComponent<MusicController>();
         SetCompanyValue = CompanyValue;
         SetUpgradeValue = UpgradeValue;
     }
@@ -58,6 +61,7 @@ public class WaterItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
+            musicController.CoinSound();
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
@@ -67,6 +71,7 @@ public class WaterItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }
@@ -74,7 +79,8 @@ public class WaterItens : MonoBehaviour {
     public void BuyUpgrade(int number)
     {
         if (requirement.requirement == "")
-        {
+        {            
+            musicController.CoinSound();
             allPoints.money -= UpgradeValue;
             NumberOfUpgrades += number;
             UpgradeValue += SetUpgradeValue;
@@ -84,6 +90,7 @@ public class WaterItens : MonoBehaviour {
         }
         else
         {
+            musicController.ClickSound();
             errorMessage.Instantiate(requirement.requirement);
         }
     }

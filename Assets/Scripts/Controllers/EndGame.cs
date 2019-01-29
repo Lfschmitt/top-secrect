@@ -10,6 +10,7 @@ public class EndGame : MonoBehaviour {
     private TimeController timeController;
     private MoneyCollect moneyCollect;
     private FinishGame finishGame;
+    private Vibration vibration;
     private int tec;
     private int sci;
     private int army;
@@ -22,6 +23,7 @@ public class EndGame : MonoBehaviour {
     void Start () {
         allPoints = GetComponent<AllPoints>();
         finishGame = GetComponent<FinishGame>();
+        vibration = GetComponent<Vibration>();
         levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
         if(levelManager == null)
         {
@@ -47,63 +49,10 @@ public class EndGame : MonoBehaviour {
 
     void Update () {
         ReadPoints();
-        //Ganhou
-        if (tec > 700 && sci > 700 && pop > 700 && nat > 600 && water > 600)
-            FinishGame("Your planet is work", timeController.totalDays);
+        CheckWinGame();
+        CheckLoseGame();
 
-        //Ganhou
-        if (tec > 950 && sci > 950 && nat > 800 && water > 700)
-            FinishGame("You got a perfect Planet", timeController.totalDays);
-
-        //Destruição por poluição
-        if (tec>500 && pop>300 && nat<300)
-            Destruction("Destruição por poluição (Muitos Prédios)");
-
-        //Greve Da Raça humana
-        if (tec<500 && sci<500 && food<(pop-200) && water<(pop-200) && pop>400 && nat<300)
-            Destruction("Greve Da Raça humana(População muito infeliz)");
-
-        //Falta de população
-        if(tec - pop > 200 || sci - pop > 200)
-            Destruction("Falta de população (Pouca estrutura para ter pessoas)");
-
-        //Falta de comida
-        if ((tec>250 || sci>250) && food<(pop-200) &&  nat<500)
-            Destruction("Falta de comida");
-
-        //Falta de água
-        if ((tec>300 || sci>350) && water<(pop-200) && nat<400)
-            Destruction("Falta de água");
-
-        //Apocalipse
-        if (sci>500 && army<500 && pop>300)
-            Destruction("Apocalipse");
-
-        //Tecnolipse
-        if (tec>500 && army<500 && pop>300)
-            Destruction("Tecnolipse");
-
-        //Destruição por raça alienígena
-        if ((tec<400 && sci<400 && army<400 && water>800 && pop>500) || timeController.totalDays == 1000)
-            Destruction("Destruição por raça alienígena");
-
-        //Destruição por outra espécie
-        if (army<300 && food>300 && nat>600)
-            Destruction("Destruição por outra espécie");
-
-        //Ditadura  
-        if (tec<(army-300) && sci<(army-300) && pop<(army-300))
-            Destruction("Ditadura");
-
-        //Planeta morreu
-        if (nat < 10 || water < 10)
-            Destruction("Your planet is dead");
-
-        //A populaçao morreu
-        if (pop == 0)
-            Destruction("You dont Have peoples for your planets");
-
-        //Energia abaixo dos Necessario
+        //Low Energy
         if (tec > power + 150 || sci > power + 150 || pop > power + 200 || food > power + 200)
         {
             moneyCollect.FreezeEconomy(true);
@@ -114,6 +63,80 @@ public class EndGame : MonoBehaviour {
             moneyCollect.FreezeEconomy(false);
             alertButton.SetButton(false);
         }
+    }
+
+    void CheckLoseGame()
+    {
+        //Lose by pollution
+        if (pop > 400 && nat < 200)
+            Destruction("You dont have nature enought for the people");
+
+        //Greve Da Raça humana
+        if (tec < 300 && sci < 300 && food < (pop - 150) && water < (pop - 150) && pop > 300 && nat < 400)
+            Destruction("Your people are sad and do strike");
+
+        //Lack of popuation
+        if (tec - pop > 200 || sci - pop > 200)
+            Destruction("You dont have people for the companies an your planet went bankrupt");
+
+        //Lack of food
+        if (food < (pop - 200))
+            Destruction("Lack of food for the populations");
+
+        //Lack of water
+        if (water < (pop - 200))
+            Destruction("Lack of Water for the populations");
+
+        //Apocalypse
+        if (sci > 500 && army < 500 && pop > 300)
+            Destruction("Apocalypse");
+
+        //RobotLypse
+        if (tec > 500 && army < 500 && pop > 300)
+            Destruction("Robotlypse");
+
+        //Destruição por raça alienígena
+        if ((tec < 400 && sci < 400 && army < 400 && water > 800 && pop > 500) || timeController.totalDays == 1000)
+            Destruction("Your planet was invaded by aliens");
+
+        //Destruction for other specie
+        if (army < 300 && food > 300 && nat > 600)
+            Destruction("Your planet was attacked for the natives");
+
+        //Dictatorship  
+        if (tec < (army - 300) && sci < (army - 300) && pop < (army - 300))
+            Destruction("The army take the control of the planet");
+
+        //Nature of the Planet died
+        if (nat < 10)
+            Destruction("Nature of the your planet is dead");
+
+        //water of the planet dried out
+        if (water < 10)
+            Destruction("Water of the planet dried out");
+
+        //The population is dead
+        if (pop == 0)
+            Destruction("You dont Have people for your planets");
+    }
+
+    void CheckWinGame()
+    {
+        //Win With PerfectPlanet
+        if (tec > 500 && sci > 500 && pop > 500 && nat > 600 && water > 600)
+            FinishGame("You got a perfect planet with high Technology and Science", timeController.totalDays);
+        
+        //Win With high Technology
+        if (tec > 800 && pop > 600 && nat > 700 && water > 700)
+            FinishGame("You got a plant with high Technology", timeController.totalDays);
+
+        //Win with high Science
+        if (sci > 800 && pop > 600 && nat > 700 && water > 700)
+            FinishGame("You got a plant with high Science", timeController.totalDays);
+
+        //Win With high Population
+        if (pop > 800 && nat > 700 && water > 700)
+            FinishGame("Your population are in peace", timeController.totalDays);
     }
 
     void ReadPoints()
@@ -139,6 +162,7 @@ public class EndGame : MonoBehaviour {
     void Destruction(string name)
     {
         //CallPanel(name, true);
+        vibration.Vibrate();
         finishGame.LoseGame(name);
     }
 

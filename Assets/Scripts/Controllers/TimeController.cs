@@ -5,16 +5,15 @@ using UnityEngine.UI;
 public class TimeController : MonoBehaviour {
 
     public int totalDays;
-    public bool avanceDay;
-    public int avanceMoreDays;   
-    public bool confirm;   
+    public bool avanceDay;   
     public int limitiDays;
     public Text days;
-    public InputField inputField;
+    public float waitTime;
 
+    private float storageTime;
     private bool send;
     private MoneyCollect moneyCollect;
-    private float waitTime = 1;
+
     private AllPoints allpoints;
 
     void Start()
@@ -30,56 +29,30 @@ public class TimeController : MonoBehaviour {
         {
             Debug.Log("The game object -PointsController- not find in scene");
         }
+
+        storageTime = Time.time + waitTime;
     }
 
     void Update () {
-        if (totalDays + avanceMoreDays <= limitiDays)
-        {
-            if (avanceDay && totalDays < limitiDays)
-            {
-                moneyCollect.SendMoney(1);          
-                totalDays++;
-                avanceDay = !avanceDay;
-            }
-            else
-            {
-                avanceDay = false;
-            }
 
-            if (avanceMoreDays > 0 && confirm)
-            {
-                //moneyCollect.SendMoney(avanceMoreDays, true);
-                StartCoroutine(ChangeDays());
-            }
-            else if (avanceMoreDays == 0)
-            {
-                confirm = false;
-                send = true;
-            }
+        if (avanceDay && totalDays < limitiDays)
+        {
+            WhenAvanceDay(1);
+            avanceDay = !avanceDay;
+            storageTime = Time.time + waitTime;
         }
         else
         {
-            avanceMoreDays = limitiDays - totalDays;
+            avanceDay = false;
+        }
+
+        if(storageTime < Time.time)
+        {
+            WhenAvanceDay(1);
+            storageTime = Time.time + waitTime;
         }
 
         days.text = "Day " + totalDays.ToString();
-    }
-
-    IEnumerator ChangeDays()
-    {
-        while (avanceMoreDays > 0 && confirm)
-        {
-            confirm = true;
-            if (send)
-            {
-                moneyCollect.SendMoney(avanceMoreDays);
-                send = false;
-            }
-            totalDays++;
-            avanceMoreDays--;
-            inputField.text = avanceMoreDays.ToString();
-            yield return new WaitForSeconds(waitTime);
-        }       
     }
 
     public void AvanceDayClick()
@@ -87,14 +60,10 @@ public class TimeController : MonoBehaviour {
         avanceDay = true;
     }
 
-    public void ConfirmClick()
+    public void WhenAvanceDay(int number)
     {
-        confirm = true;
-    }
-
-    public void InputDays()
-    {
-        avanceMoreDays = int.Parse(inputField.text);
+        moneyCollect.SendMoney(number);
+        totalDays += number;
     }
 
     public void SetDays(int number)

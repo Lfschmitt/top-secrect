@@ -8,7 +8,7 @@ public class ColorActivity : MonoBehaviour
     public Button theButton;
 
     //this get the Transitions of the Button as its pressed
-    private ColorBlock theColor;
+    public ColorBlock theColor;
 
     // Use this for initialization
     void Awake()

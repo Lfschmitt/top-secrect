@@ -8,6 +8,16 @@ public class LevelManager : MonoBehaviour {
     public GameObject shop;
     public GameObject pointsMenu;
     public GameObject exitPanel;
+    public string nameTheme;
+
+    private MusicController musicController;
+
+    private void Start()
+    {
+        musicController = GetComponent<MusicController>();
+        StartCoroutine(Music());
+    }
+
     public void Shop(bool name)
     {
         shop.SetActive(name);
@@ -24,5 +34,11 @@ public class LevelManager : MonoBehaviour {
     {
         SceneManager.LoadScene("Menu");
         SceneManager.UnloadSceneAsync("World");
+    }
+
+    IEnumerator Music()
+    {
+        yield return new WaitForSeconds(1f);
+        musicController.SoundTheme(nameTheme);
     }
 }
