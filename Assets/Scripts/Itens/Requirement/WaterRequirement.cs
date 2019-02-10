@@ -18,7 +18,7 @@ public class WaterRequirement : MonoBehaviour {
     {
         if (allPoints.population + water.afectPopulation < 0)
         {
-            requirement = "Need Population";
+            requirement = "You Need Buy Population";
         }
         else
         {

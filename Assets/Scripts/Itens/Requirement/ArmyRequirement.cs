@@ -18,15 +18,15 @@ public class ArmyRequirement : MonoBehaviour {
     {
         if (allPoints.food + army.afectFood < 0)
         {
-            requirement = "Need Food";
+            requirement = "You Need Buy Food";
         }
         else if (allPoints.water + army.afectWater< 0)
         {
-            requirement = "Need Water";
+            requirement = "You Need Buy Water";
         }
         else if (allPoints.population + army.afectPopulation < 0)
         {
-            requirement = "Need Population";
+            requirement = "You Need Buy Population";
         }
         else
         {

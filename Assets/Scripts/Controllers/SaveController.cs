@@ -203,7 +203,7 @@ public class SaveController : MonoBehaviour {
         energy.NumberOfCompany = 0;
         energy.NumberOfUpgrades = 0;
 
-        worldController.ResetWorld();
+        //worldController.ResetWorld();
 
         removePoints.totalDays = timeController.totalDays + removePoints.eachDays;
         randonDestroy.LotteryNumbers();

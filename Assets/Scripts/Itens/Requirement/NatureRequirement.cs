@@ -18,11 +18,11 @@ public class NatureRequirement : MonoBehaviour {
     {
         if (allPoints.water + nature.afectWater < 0)
         {
-            requirement = "Need Water";
+            requirement = "You Need Buy Water";
         }
         else if (allPoints.population + nature.afectPopulation < 0)
         {
-            requirement = "Need Population";
+            requirement = "You Need Buy Population";
         }
         else
         {

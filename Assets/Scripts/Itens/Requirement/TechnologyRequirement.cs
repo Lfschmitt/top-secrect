@@ -16,15 +16,11 @@ public class TechnologyRequirement : MonoBehaviour {
 	public void Update () {
         if (allPoints.power + technology.afectEnergy < 0)
         {
-            requirement = "Need Energy";
-        }
-        else if (allPoints.nature + technology.afectNature < 0)
-        {
-            requirement = "Need Nature";
+            requirement = "You Need Buy Energy";
         }
         else if (allPoints.population + technology.afectPopulation < 0)
         {
-            requirement = "Need Population";
+            requirement = "You Need Buy Population";
         }
         else
         {

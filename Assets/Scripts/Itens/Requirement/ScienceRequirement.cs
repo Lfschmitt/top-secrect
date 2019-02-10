@@ -18,15 +18,11 @@ public class ScienceRequirement : MonoBehaviour {
     {
         if (allPoints.power + science.afectEnergy < 0)
         {
-            requirement = "Need Energy";
-        }
-        else if (allPoints.nature + science.afectNature < 0)
-        {
-            requirement = "Need Nature";
+            requirement = "You Need Buy Energy";
         }
         else if (allPoints.population + science.afectPopulation < 0)
         {
-            requirement = "Need Population";
+            requirement = "You Need Buy Population";
         }
         else
         {

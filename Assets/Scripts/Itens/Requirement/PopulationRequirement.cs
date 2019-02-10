@@ -18,23 +18,19 @@ public class PopulationRequirement : MonoBehaviour {
     {
         if (allPoints.power + population.afectEnergy < 0)
         {
-            requirement = "Need Energy";
-        }
-        else if (allPoints.nature + population.afectNature < 0)
-        {
-            requirement = "Need Nature";
+            requirement = "You Need Buy Energy";
         }
         else if (allPoints.food + population.afectFood < 0)
         {
-            requirement = "Need Food";
+            requirement = "You Need Buy Food";
         }
         else if (allPoints.water + population.afectWater < 0)
         {
-            requirement = "Need water";
+            requirement = "You Need Buy Water";
         }
         else if (allPoints.army + population.afectArmy < 0)
         {
-            requirement = "Need Army";
+            requirement = "You Need Buy Army";
         }
         else
         {

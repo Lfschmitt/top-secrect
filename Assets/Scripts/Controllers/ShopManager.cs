@@ -30,7 +30,7 @@ public class ShopManager : MonoBehaviour {
     private NatureItens nature;
     private EnergyItens energy;
 
-
+    public InstatiateErrorMessage errorMessage;
     public ColorActivity companyButton;
     public ColorActivity upgradeButton;
 
@@ -44,9 +44,6 @@ public class ShopManager : MonoBehaviour {
         population = GameObject.Find("ItensBuyManager").GetComponent<PopulationsItens>();
         nature = GameObject.Find("ItensBuyManager").GetComponent<NatureItens>();
         energy = GameObject.Find("ItensBuyManager").GetComponent<EnergyItens>();
-
-        //companyButton = GameObject.Find("CompanyButton").GetComponent<ColorActivity>();
-        //upgradeButton = GameObject.Find("UpgradeButton").GetComponent<ColorActivity>();
     }
 	
 	void Update () {
@@ -86,16 +83,6 @@ public class ShopManager : MonoBehaviour {
 
     void EnableTechnology()
     {
-        if (allPoints.money >= technology.CompanyValue)
-            companyButton.NormalButton();
-        else
-            companyButton.RedButton();
-
-        if (allPoints.money >= technology.UpgradeValue)
-            upgradeButton.NormalButton();
-        else
-            upgradeButton.RedButton();
-
         icons.sprite = spriteIcons[count];
         writePoint.text = "Technology";
         Button.text = "Buy Company";
@@ -107,16 +94,6 @@ public class ShopManager : MonoBehaviour {
     }
     void EnableScience()
     {
-        if (allPoints.money >= science.CompanyValue)
-            companyButton.NormalButton();
-        else
-            companyButton.RedButton();
-
-        if (allPoints.money >= science.UpgradeValue)
-            upgradeButton.NormalButton();
-        else
-            upgradeButton.RedButton();
-
         icons.sprite = spriteIcons[count];
         writePoint.text = "Science";
         Button.text = "Buy Lab";
@@ -128,16 +105,6 @@ public class ShopManager : MonoBehaviour {
     }
     void EnableArmy()
     {
-        if (allPoints.money >= army.CompanyValue)
-            companyButton.NormalButton();
-        else
-            companyButton.RedButton();
-
-        if (allPoints.money >= army.UpgradeValue)
-            upgradeButton.NormalButton();
-        else
-            upgradeButton.RedButton();
-
         icons.sprite = spriteIcons[count];
         Button.text = "Buy Soldiers";
         writePoint.text = "Army";
@@ -149,16 +116,6 @@ public class ShopManager : MonoBehaviour {
     }
     void EnableFood()
     {
-        if (allPoints.money >= food.CompanyValue)
-            companyButton.NormalButton();
-        else
-            companyButton.RedButton();
-
-        if (allPoints.money >= food.UpgradeValue)
-            upgradeButton.NormalButton();
-        else
-            upgradeButton.RedButton();
-
         icons.sprite = spriteIcons[count];
         writePoint.text = "Food";
         Button.text = "Buy Fast-Food";
@@ -170,16 +127,6 @@ public class ShopManager : MonoBehaviour {
     }
     void EnableWater()
     {
-        if (allPoints.money >= water.CompanyValue)
-            companyButton.NormalButton();
-        else
-            companyButton.RedButton();
-
-        if (allPoints.money >= water.UpgradeValue)
-            upgradeButton.NormalButton();
-        else
-            upgradeButton.RedButton();
-
         icons.sprite = spriteIcons[count];
         writePoint.text = "Water";
         Button.text = "Clear Rivers";
@@ -191,16 +138,6 @@ public class ShopManager : MonoBehaviour {
     }
     void EnablePopulation()
     {
-        if (allPoints.money >= population.CompanyValue)
-            companyButton.NormalButton();
-        else
-            companyButton.RedButton();
-
-        if (allPoints.money >= population.UpgradeValue)
-            upgradeButton.NormalButton();
-        else
-            upgradeButton.RedButton();
-
         icons.sprite = spriteIcons[count];
         writePoint.text = "Population";
         Button.text = "Buy Homes";
@@ -212,16 +149,6 @@ public class ShopManager : MonoBehaviour {
     }
     void EnableNature()
     {
-        if (allPoints.money >= nature.CompanyValue)
-            companyButton.NormalButton();
-        else
-            companyButton.RedButton();
-
-        if (allPoints.money >= nature.UpgradeValue)
-            upgradeButton.NormalButton();
-        else
-            upgradeButton.RedButton();
-
         icons.sprite = spriteIcons[count];
         writePoint.text = "Nature";
         Button.text = "Buy Nature";
@@ -233,16 +160,6 @@ public class ShopManager : MonoBehaviour {
     }
     void EnablePower()
     {
-        if (allPoints.money >= energy.CompanyValue)
-            companyButton.NormalButton();
-        else
-            companyButton.RedButton();
-
-        if (allPoints.money >= energy.UpgradeValue)
-            upgradeButton.NormalButton();
-        else
-            upgradeButton.RedButton();
-
         icons.sprite = spriteIcons[count];
         writePoint.text = "Energy";
         Button.text = "Buy Company";
@@ -261,12 +178,20 @@ public class ShopManager : MonoBehaviour {
             {
                 technology.BuyCompany(1);
             }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
+            }
         }
         else if (count == 1)
         {
             if (allPoints.money >= science.CompanyValue)
             {
                 science.BuyCompany(1);
+            }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
             }
         }
         else if (count == 2)
@@ -275,12 +200,20 @@ public class ShopManager : MonoBehaviour {
             {
                 army.BuyCompany(1);
             }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
+            }
         }
         else if (count == 3)
         {
             if (allPoints.money >= food.CompanyValue)
             {
                 food.BuyCompany(1);
+            }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
             }
         }
         else if (count == 4)
@@ -289,12 +222,20 @@ public class ShopManager : MonoBehaviour {
             {
                 water.BuyCompany(1);
             }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
+            }
         }
         else if (count == 5)
         {
             if (allPoints.money >= population.CompanyValue)
             {
                 population.BuyCompany(1);              
+            }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
             }
         }
         else if (count == 6)
@@ -304,12 +245,20 @@ public class ShopManager : MonoBehaviour {
                 
                 nature.BuyCompany(1);
             }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
+            }
         }
         else if (count == 7)
         {
             if (allPoints.money >= energy.CompanyValue)
             {
                 energy.BuyCompany(1);
+            }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
             }
         }
     }
@@ -321,12 +270,20 @@ public class ShopManager : MonoBehaviour {
             {
                 technology.BuyUpgrade(1);
             }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
+            }
         }
         else if (count == 1)
         {
             if (allPoints.money >= science.UpgradeValue)
             {
                 science.BuyUpgrade(1);
+            }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
             }
         }
         else if (count == 2)
@@ -335,12 +292,20 @@ public class ShopManager : MonoBehaviour {
             {
                 army.BuyUpgrade(1);
             }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
+            }
         }
         else if (count == 3)
         {
             if (allPoints.money >= food.UpgradeValue)
             {
                 food.BuyUpgrade(1);
+            }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
             }
         }
         else if (count == 4)
@@ -349,12 +314,20 @@ public class ShopManager : MonoBehaviour {
             {
                 water.BuyUpgrade(1);
             }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
+            }
         }
         else if (count == 5)
         {
             if (allPoints.money >= population.UpgradeValue)
             {
                 population.BuyUpgrade(1);
+            }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
             }
         }
         else if (count == 6)
@@ -363,6 +336,10 @@ public class ShopManager : MonoBehaviour {
             {
                 nature.BuyUpgrade(1);
             }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
+            }
         }
         else if (count == 7)
         {
@@ -370,6 +347,28 @@ public class ShopManager : MonoBehaviour {
             {
                 energy.BuyUpgrade(1);
             }
+            else
+            {
+                errorMessage.Instantiate("You Need Money For Buy");
+            }
+        }
+    }
+
+    public void ColorButton(string button, string name)
+    {
+        if (button == "Company")
+        {
+            if (name == "Red")
+                companyButton.RedButton();
+            else if (name == "White")
+                companyButton.NormalButton();
+        }
+        else if(button == "Upgrade")
+        {
+            if (name == "Red")
+                upgradeButton.RedButton();
+            else if (name == "White")
+                upgradeButton.NormalButton();
         }
     }
 }

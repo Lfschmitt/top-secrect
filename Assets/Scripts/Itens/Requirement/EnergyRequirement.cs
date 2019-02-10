@@ -16,13 +16,10 @@ public class EnergyRequirement : MonoBehaviour {
 
     public void Update()
     {
-        if (allPoints.nature + energy.afectNature < 0)
+
+        if (allPoints.population + energy.afectPopulation < 0)
         {
-            requirement = "Need Nature";
-        }
-        else if (allPoints.population + energy.afectPopulation < 0)
-        {
-            requirement = "Need Population";
+            requirement = "You Need Buy Population";
         }
         else
         {

@@ -11,8 +11,6 @@ public class MusicController : MonoBehaviour {
 
     private void Start()
     {
-          Debug.Log("Music = " + PlayerPrefs.GetInt("Music"));
-        Debug.Log("Sound = " + PlayerPrefs.GetInt("Sound"));
         if (PlayerPrefs.GetInt("Music") == 0)
             music = true;
         else
@@ -103,7 +101,6 @@ public class MusicController : MonoBehaviour {
             PauseSoundTheme("MenuTheme");
             PlayerPrefs.SetInt("Music", 1);
         }
-        Debug.Log("Music = " + PlayerPrefs.GetInt("Music"));
     }
 
     public void ActiveSound()
@@ -113,6 +110,5 @@ public class MusicController : MonoBehaviour {
             PlayerPrefs.SetInt("Sound", 0);
         else
             PlayerPrefs.SetInt("Sound", 1);
-        Debug.Log("Sound = "+ PlayerPrefs.GetInt("Sound"));
     }
 }

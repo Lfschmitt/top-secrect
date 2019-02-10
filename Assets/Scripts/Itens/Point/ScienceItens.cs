@@ -27,6 +27,7 @@ public class ScienceItens : MonoBehaviour {
     private ScienceRequirement requirement;
 
     private MusicController musicController;
+    private ShopManager shopManager;
 
     private void Start()
     {
@@ -46,6 +47,7 @@ public class ScienceItens : MonoBehaviour {
             Debug.Log("The script science dont find the Game Object 'ItensRequirementManager'");
         }
         musicController = GameObject.Find("LevelManager").GetComponent<MusicController>();
+        shopManager = GameObject.Find("LevelManager").GetComponent<ShopManager>();
         SetCompanyValue = CompanyValue;
         SetUpgradeValue = UpgradeValue;
     }
@@ -56,6 +58,27 @@ public class ScienceItens : MonoBehaviour {
         TotalMoney = TotalMoneyOfCompany * NumberOfCompany;
 
         moneyCollect.ReciveMoney(1, TotalMoney);
+
+        if (shopManager.count == 1)
+        {
+            if (requirement.requirement == "")
+            {
+                if (allPoints.money >= CompanyValue)
+                    shopManager.ColorButton("Company", "White");
+                else
+                    shopManager.ColorButton("Company", "Red");
+
+                if (allPoints.money >= UpgradeValue && NumberOfCompany > 0)
+                    shopManager.ColorButton("Upgrade", "White");
+                else
+                    shopManager.ColorButton("Upgrade", "Red");
+            }
+            else
+            {
+                shopManager.ColorButton("Company", "Red");
+                shopManager.ColorButton("Upgrade", "Red");
+            }
+        }
     }
 
     public void BuyCompany(int number)
@@ -82,14 +105,22 @@ public class ScienceItens : MonoBehaviour {
     {
         if (requirement.requirement == "")
         {
-            musicController.CoinSound();
-            allPoints.money -= UpgradeValue;
-            NumberOfUpgrades += number;
-            UpgradeValue += SetUpgradeValue;
-            allPoints.AddScience(afectScience / 2);
-            allPoints.AddPopulation(afectPopulation / 2);
-            allPoints.AddNature(afectNature / 2);
-            allPoints.AddPower(afectEnergy / 2);
+            if (NumberOfCompany > 0)
+            {
+                musicController.CoinSound();
+                allPoints.money -= UpgradeValue;
+                NumberOfUpgrades += number;
+                UpgradeValue += SetUpgradeValue;
+                allPoints.AddScience(afectScience / 2);
+                allPoints.AddPopulation(afectPopulation / 2);
+                allPoints.AddNature(afectNature / 2);
+                allPoints.AddPower(afectEnergy / 2);
+            }
+            else
+            {
+                musicController.ClickSound();
+                errorMessage.Instantiate("You Need a Comany Before");
+            }
         }
         else
         {
