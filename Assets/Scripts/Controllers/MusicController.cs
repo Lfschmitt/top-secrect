@@ -5,7 +5,7 @@ using UnityEngine;
 public class MusicController : MonoBehaviour {
 
     public AudioManager audioManager;
-    private bool oneTime;
+    private bool oneTime = true;
     private bool music = true;
     private bool sound = true;
 

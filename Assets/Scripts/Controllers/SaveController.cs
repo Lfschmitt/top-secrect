@@ -88,21 +88,13 @@ public class SaveController : MonoBehaviour {
         PlayerPrefs.SetInt("Days", timeController.totalDays);
 
         PlayerPrefs.SetInt("TechnologyNumberOfCompany", technology.NumberOfCompany);
-        PlayerPrefs.SetInt("TechnologyNumberOfUpgrade", technology.NumberOfUpgrades);
         PlayerPrefs.SetInt("ScienceNumberOfCompany", science.NumberOfCompany);
-        PlayerPrefs.SetInt("ScienceNumberOfUpgrade", science.NumberOfUpgrades);
         PlayerPrefs.SetInt("ArmyNumberOfCompany", army.NumberOfCompany);
-        PlayerPrefs.SetInt("ArmyNumberOfUpgrade", army.NumberOfUpgrades);
         PlayerPrefs.SetInt("FoodNumberOfCompany", food.NumberOfCompany);
-        PlayerPrefs.SetInt("FoodNumberOfUpgrade", food.NumberOfUpgrades);
         PlayerPrefs.SetInt("WaterNumberOfCompany", water.NumberOfCompany);
-        PlayerPrefs.SetInt("WaterNumberOfUpgrade", water.NumberOfUpgrades);
         PlayerPrefs.SetInt("PopulationNumberOfCompany", population.NumberOfCompany);
-        PlayerPrefs.SetInt("PopulationNumberOfUpgrade", population.NumberOfUpgrades);
         PlayerPrefs.SetInt("NatureNumberOfCompany", nature.NumberOfCompany);
-        PlayerPrefs.SetInt("NatureNumberOfUpgrade", nature.NumberOfUpgrades);
         PlayerPrefs.SetInt("EnergyNumberOfCompany", energy.NumberOfCompany);
-        PlayerPrefs.SetInt("EnregyNumberOfUpgrade", energy.NumberOfUpgrades);
 
         PlayerPrefs.SetInt("Destroy1", randonDestroy.destroy1);
         PlayerPrefs.SetInt("Destroy2", randonDestroy.destroy2);
@@ -127,21 +119,13 @@ public class SaveController : MonoBehaviour {
         timeController.totalDays = PlayerPrefs.GetInt("Days");
 
         technology.NumberOfCompany = PlayerPrefs.GetInt("TechnologyNumberOfCompany");
-        technology.NumberOfUpgrades =  PlayerPrefs.GetInt("TechnologyNumberOfUpgrade");
         science.NumberOfCompany = PlayerPrefs.GetInt("ScienceNumberOfCompany");
-        science.NumberOfUpgrades = PlayerPrefs.GetInt("ScienceNumberOfUpgrade");
         army.NumberOfCompany = PlayerPrefs.GetInt("ArmyNumberOfCompany");
-        army.NumberOfUpgrades = PlayerPrefs.GetInt("ArmyNumberOfUpgrade");
         food.NumberOfCompany = PlayerPrefs.GetInt("FoodNumberOfCompany");
-        food.NumberOfUpgrades = PlayerPrefs.GetInt("FoodNumberOfUpgrade");
         water.NumberOfCompany = PlayerPrefs.GetInt("WaterNumberOfCompany");
-        water.NumberOfUpgrades = PlayerPrefs.GetInt("WaterNumberOfUpgrade");
         population.NumberOfCompany = PlayerPrefs.GetInt("PopulationNumberOfCompany");
-        population.NumberOfUpgrades = PlayerPrefs.GetInt("PopulationNumberOfUpgrade");
         nature.NumberOfCompany = PlayerPrefs.GetInt("NatureNumberOfCompany");
-        nature.NumberOfUpgrades = PlayerPrefs.GetInt("NatureNumberOfUpgrade");
         energy.NumberOfCompany = PlayerPrefs.GetInt("EnergyNumberOfCompany");
-        energy.NumberOfUpgrades = PlayerPrefs.GetInt("EnregyNumberOfUpgrade");
 
         randonDestroy.destroy1 = PlayerPrefs.GetInt("Destroy1");
         randonDestroy.destroy2 = PlayerPrefs.GetInt("Destroy2");
@@ -171,39 +155,21 @@ public class SaveController : MonoBehaviour {
         timeController.SetDays(0);
 
         technology.CompanyValue = technology.SetCompanyValue;
-        technology.UpgradeValue = technology.SetUpgradeValue;
         technology.NumberOfCompany = 0;
-        technology.NumberOfUpgrades = 0;
         science.CompanyValue = science.SetCompanyValue;
-        science.UpgradeValue = science.SetUpgradeValue;
         science.NumberOfCompany = 0;
-        science.NumberOfUpgrades = 0;
         army.CompanyValue = army.SetCompanyValue;
-        army.UpgradeValue = army.SetUpgradeValue;
         army.NumberOfCompany = 0;
-        army.NumberOfUpgrades = 0;
         food.CompanyValue = food.SetCompanyValue;
-        food.UpgradeValue = food.SetUpgradeValue;
         food.NumberOfCompany = 0;
-        food.NumberOfUpgrades = 0;
         water.CompanyValue = water.SetCompanyValue;
-        water.UpgradeValue = water.SetUpgradeValue;
         water.NumberOfCompany = 0;
-        water.NumberOfUpgrades = 0;
         population.CompanyValue = population.SetCompanyValue;
-        population.UpgradeValue = population.SetUpgradeValue;
         population.NumberOfCompany = 0;
-        population.NumberOfUpgrades = 0;
         nature.CompanyValue = nature.SetCompanyValue;
-        nature.UpgradeValue = nature.SetUpgradeValue;
         nature.NumberOfCompany = 0;
-        nature.NumberOfUpgrades = 0;
         energy.CompanyValue = energy.SetCompanyValue;
-        energy.UpgradeValue = energy.SetUpgradeValue;
         energy.NumberOfCompany = 0;
-        energy.NumberOfUpgrades = 0;
-
-        //worldController.ResetWorld();
 
         removePoints.totalDays = timeController.totalDays + removePoints.eachDays;
         randonDestroy.LotteryNumbers();

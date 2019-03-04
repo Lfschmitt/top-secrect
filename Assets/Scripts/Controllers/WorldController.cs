@@ -4,29 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class WorldController : MonoBehaviour
-{
-    private AllPoints allPoints;
-    public SpriteController[] images;
+{ 
+    public SpriteController[] days;
 
+    private ChangeSpritesWhenClckOnWorld changeSprites;
     private bool changed;
 
-    void Start()
+    private void Start()
     {
-        allPoints = GameObject.Find("PointsController").GetComponent<AllPoints>();
-    }
-
-    void Update()
-    {
-
+        changeSprites = GameObject.Find("UpdateWorld").GetComponent<ChangeSpritesWhenClckOnWorld>();
     }
 
     public void ChangeWorld()
     {
         if (changed)
-            images[0].image.sprite = images[0].sprites[0];
+            days[0].image.sprite = days[0].sprites[0];
         else
-            images[0].image.sprite = images[0].sprites[1];
+            days[0].image.sprite = days[0].sprites[1];
 
+        changeSprites.Trade(changed);
         changed = !changed;
     }
 }

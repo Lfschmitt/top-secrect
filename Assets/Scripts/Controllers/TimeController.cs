@@ -15,6 +15,7 @@ public class TimeController : MonoBehaviour {
     private bool send;
     private bool altere;
 
+    private PointsCollect pointsCollect;
     private MoneyCollect moneyCollect;
     private AllPoints allpoints;
     private NightController nightController;
@@ -29,6 +30,12 @@ public class TimeController : MonoBehaviour {
 
         moneyCollect = GameObject.Find("PointsController").GetComponent<MoneyCollect>();
         if (moneyCollect == null)
+        {
+            Debug.Log("The game object -PointsController- not find in scene");
+        }
+
+        pointsCollect = GameObject.Find("PointsController").GetComponent<PointsCollect>();
+        if (pointsCollect == null)
         {
             Debug.Log("The game object -PointsController- not find in scene");
         }
@@ -96,6 +103,7 @@ public class TimeController : MonoBehaviour {
 
     public void WhenAvanceDay(int number)
     {
+        pointsCollect.SendPoints(number);
         moneyCollect.SendMoney(number);
         totalDays += number;
     }

@@ -8,7 +8,7 @@ public class FinishGame : MonoBehaviour {
     public GameObject winPanel;
     public GameObject losePanel;
     public GameObject destroyPanel;
-
+    public GameObject StopClickGames;
     public Text daysText;
     public Text loseText;
     public Text winText;
@@ -16,15 +16,21 @@ public class FinishGame : MonoBehaviour {
     private TimeController timeController;
     private Vibration vibration;
     private MusicController musicController;
+    private EndGame endGame;
 
     private void Start()
     {
+        endGame = GetComponent<EndGame>();
         timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
         vibration = GetComponent<Vibration>();
         musicController = GameObject.Find("LevelManager").GetComponent<MusicController>();
     }
-    public void WinGame(int days, string name)
+
+    public IEnumerator WinGame(int days, string name)
     {
+        StopClickGames.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        StopClickGames.SetActive(false);
         timeController.GameTime(true);
         winPanel.SetActive(true);
         musicController.Win();
@@ -32,8 +38,11 @@ public class FinishGame : MonoBehaviour {
         daysText.text = days.ToString();
     }
 
-    public void LoseGame(string name)
+    public IEnumerator LoseGame(string name)
     {
+        StopClickGames.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        StopClickGames.SetActive(false);
         timeController.GameTime(true);
         losePanel.SetActive(true);
         musicController.Lose();
@@ -42,6 +51,7 @@ public class FinishGame : MonoBehaviour {
 
     public void ClosePanels()
     {
+        endGame.ChangeOneTimeValue(true);
         timeController.GameTime(false);
         vibration.vibrate = true;
         winPanel.SetActive(false);

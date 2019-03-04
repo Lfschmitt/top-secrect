@@ -38,12 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: World
-    uniqueID: 2927074809
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: World
+    uniqueID: 2927074809
+    locked: 0
+  - name: Lights
+    uniqueID: 1034003193
+    locked: 0
   - name: Stars
     uniqueID: 910330819
+    locked: 0
+  - name: Clouds
+    uniqueID: 1074337549
     locked: 0

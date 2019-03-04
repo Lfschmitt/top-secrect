@@ -19,6 +19,7 @@ public class EndGame : MonoBehaviour {
     private int pop;
     private int power;
     private int nat;
+    private bool oneTime = true;
 
     void Start () {
         allPoints = GetComponent<AllPoints>();
@@ -100,7 +101,7 @@ public class EndGame : MonoBehaviour {
             Destruction("Your planet was invaded by aliens");
 
         //Destruction for other specie
-        if (army < 300 && food > 300 && nat > 600)
+        if (army < 300 && food > 400 && nat > 600)
             Destruction("Your planet was attacked for the natives");
 
         //Dictatorship  
@@ -126,15 +127,15 @@ public class EndGame : MonoBehaviour {
         if (tec > 500 && sci > 500 && pop > 500 && nat > 600 && water > 600)
             FinishGame("You got a perfect planet with high Technology and Science", timeController.totalDays);
         
-        //Win With high Technology
+        //Win With very high Technology
         if (tec > 800 && pop > 600 && nat > 700 && water > 700)
             FinishGame("You got a plant with high Technology", timeController.totalDays);
 
-        //Win with high Science
+        //Win with very high Science
         if (sci > 800 && pop > 600 && nat > 700 && water > 700)
             FinishGame("You got a plant with high Science", timeController.totalDays);
 
-        //Win With high Population
+        //Win With very high Population
         if (pop > 800 && nat > 700 && water > 700)
             FinishGame("Your population are in peace", timeController.totalDays);
     }
@@ -161,13 +162,25 @@ public class EndGame : MonoBehaviour {
 
     void Destruction(string name)
     {
-        //CallPanel(name, true);
         vibration.Vibrate();
-        finishGame.LoseGame(name);
+        if (oneTime) { 
+            StartCoroutine(finishGame.LoseGame(name));
+            oneTime = false;
+        }
     }
 
     void FinishGame(string name, int days)
     {
-        finishGame.WinGame(days, name);
+        vibration.Vibrate();
+        if (oneTime)
+        {
+            StartCoroutine(finishGame.WinGame(days, name));
+            oneTime = false;
+        }
+    }
+
+    public void ChangeOneTimeValue(bool one)
+    {
+        oneTime = one;
     }
 }

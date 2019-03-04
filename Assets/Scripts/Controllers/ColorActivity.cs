@@ -5,35 +5,30 @@ using System.Collections;
 public class ColorActivity : MonoBehaviour
 {
     //Reference to button to access its components
-    public Button theButton;
+    public Image[] theButton;
 
     //this get the Transitions of the Button as its pressed
-    public ColorBlock theColor;
+    public Color theColor;
 
     // Use this for initialization
-    void Awake()
+    public void RedButton(int number)
     {
-       // theButton = GetComponent<Button>();
-        theColor = GetComponent<Button>().colors;
 
+        theColor.r = 1f;
+        theColor.g = 0f;
+        theColor.b = 0f;
+
+        theButton[number].color = theColor;;
     }
 
-    public void RedButton()
+    public void NormalButton(int number)
     {
 
-        theColor.highlightedColor = Color.red;
-        theColor.normalColor = Color.red;
+        theColor.r = .6f;
+        theColor.g = .6f;
+        theColor.b = .6f;
 
-        theButton.colors = theColor;;
-    }
-
-    public void NormalButton()
-    {
-
-        theColor.highlightedColor = Color.white;
-        theColor.normalColor = Color.white;
-
-        theButton.colors = theColor;
+        theButton[number].color = theColor;
     }
 }
 

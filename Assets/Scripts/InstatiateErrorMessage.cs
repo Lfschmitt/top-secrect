@@ -5,22 +5,13 @@ using UnityEngine;
 public class InstatiateErrorMessage : MonoBehaviour {
 
     public GameObject ErrorMessage;
+    public Transform[] spawnsPosition;
     public string text;
-    public bool set;
 
-    private void Update()
-    {
-        if (set)
-        {
-            Instantiate(text);
-            set = !set;
-        }
-    }
-
-    public void Instantiate(string name)
+    public void Instantiate(string name, int whatPoosition)
     {
         text = name;
-        var myNewSmoke = Instantiate(ErrorMessage, transform.position, transform.rotation);
+        var myNewSmoke = Instantiate(ErrorMessage, spawnsPosition[whatPoosition].position, spawnsPosition[whatPoosition].rotation);
         myNewSmoke.transform.parent = gameObject.transform;
     }
 }

@@ -47,7 +47,7 @@ MonoBehaviour:
     randomVolume: 0
     randomPitch: 0
   - name: TopSecretTheme
-    clip: {fileID: 8300000, guid: 343c8c1c79078b143948e565728de8ce, type: 3}
+    clip: {fileID: 8300000, guid: 253e6ce4649f95542ace884b91cd982b, type: 3}
     volume: 1
     pitch: 1
     loop: 1

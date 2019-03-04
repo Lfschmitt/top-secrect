@@ -19,7 +19,7 @@ public class RandonDestroy : MonoBehaviour {
     private int food;
     private int power;
     private int nat;
-
+    private bool confirmColor;
     private TimeController timeController;
     private AllPoints allPoints;
 
@@ -45,10 +45,14 @@ public class RandonDestroy : MonoBehaviour {
         else if (destroy6 == timeController.totalDays)
             Hurricane();
 
-        if (allPoints.money < moneyRequired)
-            button.RedButton();
-        else
-            button.NormalButton();
+        if (confirmColor)
+        {
+            if (allPoints.money < moneyRequired)
+                button.RedButton(8);
+            else
+                button.NormalButton(8);
+        }
+
     }
 
     public void LotteryNumbers ()
@@ -213,6 +217,7 @@ public class RandonDestroy : MonoBehaviour {
 
     public void OpenPayPanel(bool Pay)
     {
+        confirmColor = Pay;
         if (Pay)
         {
             payPanel.SetActive(true);
