@@ -11,6 +11,8 @@ public class FoodItens : MonoBehaviour {
 
     public int SetCompanyValue;
     public int CompanyValue;
+    //A cada alguns pontos de limit aumenta 1 de produçao
+    public int itenLimit;
 
     public int afectFood;
     public int afectPopulation;
@@ -69,13 +71,14 @@ public class FoodItens : MonoBehaviour {
         if (requirement.requirement == "")
         {
             musicController.CoinSound();
+            allPoints.AddFoodLimit(itenLimit);
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
-            allPoints.AddNature(afectNature);
+            allPoints.AddNature((int)(afectNature * PlayerPrefs.GetFloat("Difficult")));
             allPoints.Addfood(afectFood);
-            allPoints.AddPower(afectEnergy);
-            allPoints.AddPopulation(afectPopulation);
+            allPoints.AddPower((int)(afectEnergy * PlayerPrefs.GetFloat("Difficult")));
+            allPoints.AddPopulation((int)(afectPopulation * PlayerPrefs.GetFloat("Difficult")));
         }
         else
         {

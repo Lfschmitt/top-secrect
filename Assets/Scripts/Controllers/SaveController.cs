@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveController : MonoBehaviour {
 
@@ -20,9 +21,11 @@ public class SaveController : MonoBehaviour {
 
     private int music;
     private int sound;
+    private float difficult;
 
     void Start()
     {
+        //Debug.Log(PlayerPrefs.GetFloat("Difficult"));
         allPoints = GetComponent<AllPoints>();
         randonDestroy = GetComponent<RandonDestroy>();
         removePoints = GetComponent<RemovePointsController>();
@@ -64,9 +67,11 @@ public class SaveController : MonoBehaviour {
         {
             music = PlayerPrefs.GetInt("Music");
             sound = PlayerPrefs.GetInt("Sound");
+            difficult = PlayerPrefs.GetFloat("Difficult");
         }
         else if (name == "Load")
         {
+            PlayerPrefs.SetFloat("Difficult", difficult);
             PlayerPrefs.SetInt("Music", music);
             PlayerPrefs.SetInt("Sound", sound);
         }
@@ -84,6 +89,13 @@ public class SaveController : MonoBehaviour {
         PlayerPrefs.SetInt("Power", allPoints.power);
         PlayerPrefs.SetInt("Nature", allPoints.nature);
         PlayerPrefs.SetInt("Money", allPoints.money);
+
+        PlayerPrefs.SetInt("TechnologyLimit", allPoints.technologyLimit);
+        PlayerPrefs.SetInt("ScienceLimit", allPoints.scienceLimit);
+        PlayerPrefs.SetInt("ArmyLimit", allPoints.armyLimit);
+        PlayerPrefs.SetInt("FoodLimit", allPoints.foodLimit);
+        PlayerPrefs.SetInt("PopulationLimit", allPoints.populationLimit);
+        PlayerPrefs.SetInt("PowerLimit", allPoints.powerLimit);
 
         PlayerPrefs.SetInt("Days", timeController.totalDays);
 
@@ -116,6 +128,13 @@ public class SaveController : MonoBehaviour {
         allPoints.nature = PlayerPrefs.GetInt("Nature");
         allPoints.money = PlayerPrefs.GetInt("Money");
 
+        allPoints.technologyLimit = PlayerPrefs.GetInt("TechnologyLimit");
+        allPoints.scienceLimit = PlayerPrefs.GetInt("ScienceLimit");
+        allPoints.armyLimit = PlayerPrefs.GetInt("ArmyLimit");
+        allPoints.foodLimit = PlayerPrefs.GetInt("FoodLimit");
+        allPoints.populationLimit = PlayerPrefs.GetInt("PopulationLimit");
+        allPoints.powerLimit = PlayerPrefs.GetInt("PowerLimit");
+
         timeController.totalDays = PlayerPrefs.GetInt("Days");
 
         technology.NumberOfCompany = PlayerPrefs.GetInt("TechnologyNumberOfCompany");
@@ -137,20 +156,29 @@ public class SaveController : MonoBehaviour {
 
     public void DeleteData()
     {
+        SavePrefabs("Save");
         PlayerPrefs.DeleteAll();
+        SavePrefabs("Load");
     }
     
     public void ResetData()
     {
         allPoints.technology = 0;
         allPoints.science = 0;
-        allPoints.army = 0;
+        allPoints.army = allPoints.maxValue / 10;
         allPoints.food = allPoints.maxValue / 10;
         allPoints.water = allPoints.maxValue;
         allPoints.population = allPoints.maxValue / 10;
-        allPoints.power = 0;       
+        allPoints.power = allPoints.maxValue / 20;       
         allPoints.nature = allPoints.maxValue;
         allPoints.money = allPoints.maxValue / 10;
+
+        allPoints.technologyLimit = 0;
+        allPoints.scienceLimit = 0;
+        allPoints.armyLimit = allPoints.maxValue / 10;
+        allPoints.foodLimit = allPoints.maxValue / 10;
+        allPoints.populationLimit = allPoints.maxValue / 10;
+        allPoints.powerLimit = allPoints.maxValue / 20;
 
         timeController.SetDays(0);
 
@@ -173,5 +201,7 @@ public class SaveController : MonoBehaviour {
 
         removePoints.totalDays = timeController.totalDays + removePoints.eachDays;
         randonDestroy.LotteryNumbers();
+
+        timeController.GameTime(false);
     }
 }

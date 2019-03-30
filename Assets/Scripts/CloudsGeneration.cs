@@ -10,7 +10,7 @@ public class CloudsGeneration : MonoBehaviour {
     public bool generate;
 
     private GameObject _go;
-    private float storageTime = 2f;
+    private float storageTime;
 
     private int numberOfCloud;
     private int nextCloud;
@@ -22,6 +22,7 @@ public class CloudsGeneration : MonoBehaviour {
     {
         numberOfPosition = Random.Range(0, spawners.Length);
         numberOfCloud = Random.Range(0, clouds.Length);
+        storageTime = Time.time + 2f;
     }
 
     void Update () {

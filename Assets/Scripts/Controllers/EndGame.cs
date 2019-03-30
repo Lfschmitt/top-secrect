@@ -11,6 +11,7 @@ public class EndGame : MonoBehaviour {
     private MoneyCollect moneyCollect;
     private FinishGame finishGame;
     private Vibration vibration;
+    private FinishAnimationController finishAnimation;
     private int tec;
     private int sci;
     private int army;
@@ -38,14 +39,14 @@ public class EndGame : MonoBehaviour {
         moneyCollect = GetComponent<MoneyCollect>();
         if (moneyCollect == null)
         {
-            Debug.Log("The game object -PoitsController- not find in scene");
+            Debug.Log("The game object -PointsController- not find in scene");
         }
         alertButton = GameObject.Find("LevelManager").GetComponent<AlertButton>();
         if (alertButton == null)
         {
             Debug.Log("The object -LevelManager- Dont find in scene");
         }
-
+        finishAnimation = GameObject.Find("LevelManager").GetComponent<FinishAnimationController>();
     }
 
     void Update () {
@@ -54,7 +55,7 @@ public class EndGame : MonoBehaviour {
         CheckLoseGame();
 
         //Low Energy
-        if (tec > power + 150 || sci > power + 150 || pop > power + 200 || food > power + 200)
+        if (power < tec * 0.30 || power < sci * 0.30 || power < pop * 0.20 || power < food * 0.20)
         {
             moneyCollect.FreezeEconomy(true);
             alertButton.SetButton(true);
@@ -69,75 +70,91 @@ public class EndGame : MonoBehaviour {
     void CheckLoseGame()
     {
         //Lose by pollution
-        if (pop > 400 && nat < 200)
+        if (pop > (nat + 300))
             Destruction("You dont have nature enought for the people");
 
         //Greve Da Raça humana
-        if (tec < 300 && sci < 300 && food < (pop - 150) && water < (pop - 150) && pop > 300 && nat < 400)
+        if (food < (pop - 220) && water < (pop - 220) && nat < (pop -220))
             Destruction("Your people are sad and do strike");
 
         //Lack of popuation
-        if (tec - pop > 200 || sci - pop > 200)
+        if (tec - pop > 300 || sci - pop > 300)
             Destruction("You dont have people for the companies an your planet went bankrupt");
 
+        //Lack of army
+        if(army < (pop * 0.2))
+
         //Lack of food
-        if (food < (pop - 200))
+        if (food < (pop / 2))
             Destruction("Lack of food for the populations");
 
         //Lack of water
-        if (water < (pop - 200))
+        if (water < (pop * 0.8))
             Destruction("Lack of Water for the populations");
 
         //Apocalypse
-        if (sci > 500 && army < 500 && pop > 300)
-            Destruction("Apocalypse");
+        if (sci > (pop * 1.3) && army < (pop / 3))
+            Destruction("The zombies take the control of planet");
 
         //RobotLypse
-        if (tec > 500 && army < 500 && pop > 300)
-            Destruction("Robotlypse");
+        if (tec > (pop * 1.3) && army < (pop / 3))
+            Destruction("The robots take control of the planet");
 
         //Destruição por raça alienígena
-        if ((tec < 400 && sci < 400 && army < 400 && water > 800 && pop > 500) || timeController.totalDays == 1000)
+        if ((tec < (pop - 250) || sci < (pop - 250)) && army < (pop / 3) && water > 800 || timeController.totalDays == 1000)
             Destruction("Your planet was invaded by aliens");
 
         //Destruction for other specie
-        if (army < 300 && food > 400 && nat > 600)
+        if (army < (pop / 3) && food > (pop * 1.6) && nat > (pop * 1.5))
             Destruction("Your planet was attacked for the natives");
 
         //Dictatorship  
-        if (tec < (army - 300) && sci < (army - 300) && pop < (army - 300))
+        if (army > (tec * 1.5) && army > (sci * 1.5) && army > (pop * 1.6))
             Destruction("The army take the control of the planet");
 
         //Nature of the Planet died
-        if (nat < 10)
+        if (nat <= 10)
             Destruction("Nature of the your planet is dead");
 
         //water of the planet dried out
-        if (water < 10)
+        if (water <= 10)
             Destruction("Water of the planet dried out");
 
         //The population is dead
-        if (pop == 0)
+        if (pop <= 10)
             Destruction("You dont Have people for your planets");
     }
 
     void CheckWinGame()
     {
         //Win With PerfectPlanet
-        if (tec > 500 && sci > 500 && pop > 500 && nat > 600 && water > 600)
+        if (tec > 700 && sci > 700 && pop > 700 && nat > 700 && water > 700)
+        {
+            finishAnimation.ScienceTechnologyWinAnimation(true);
+            finishAnimation.PopulationWinAnimation(true);
             FinishGame("You got a perfect planet with high Technology and Science", timeController.totalDays);
-        
+        }
+
         //Win With very high Technology
         if (tec > 800 && pop > 600 && nat > 700 && water > 700)
+        {
+            finishAnimation.ScienceTechnologyWinAnimation(true);
             FinishGame("You got a plant with high Technology", timeController.totalDays);
+        }
 
         //Win with very high Science
         if (sci > 800 && pop > 600 && nat > 700 && water > 700)
+        {
+            finishAnimation.ScienceTechnologyWinAnimation(true);
             FinishGame("You got a plant with high Science", timeController.totalDays);
+        }
 
         //Win With very high Population
         if (pop > 800 && nat > 700 && water > 700)
+        {
+            finishAnimation.PopulationWinAnimation(true);
             FinishGame("Your population are in peace", timeController.totalDays);
+        }
     }
 
     void ReadPoints()

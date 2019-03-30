@@ -18,6 +18,10 @@ public class NightController : MonoBehaviour {
     private float changeNight = 0f;
     private Color color;
 
+    private void Start()
+    {
+        x = Time.time + y;
+    }
     void Update()
     { 
         if(Time.time > x)

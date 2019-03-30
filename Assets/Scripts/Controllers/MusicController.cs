@@ -46,6 +46,11 @@ public class MusicController : MonoBehaviour {
         if(sound)
             audioManager.PlaySound("CoinDrop");
     }
+    public void BeatSound()
+    {
+        if (sound)
+            audioManager.PlaySound("DialogueBeat");
+    }
 
     public void Win()
     {

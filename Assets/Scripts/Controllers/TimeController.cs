@@ -97,6 +97,7 @@ public class TimeController : MonoBehaviour {
     public void AvanceDayClick()
     {
         avanceDay = true;
+        storageTimeDay = Time.time + dayChange;
         altere = true;
         ChangePlanetTime();
     }
@@ -106,6 +107,9 @@ public class TimeController : MonoBehaviour {
         pointsCollect.SendPoints(number);
         moneyCollect.SendMoney(number);
         totalDays += number;
+        storageTimeDay = Time.time + dayChange;
+        altere = true;
+        ChangePlanetTime();
     }
 
     public void SetDays(int number)

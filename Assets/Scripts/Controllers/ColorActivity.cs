@@ -13,12 +13,11 @@ public class ColorActivity : MonoBehaviour
     // Use this for initialization
     public void RedButton(int number)
     {
-
         theColor.r = 1f;
         theColor.g = 0f;
         theColor.b = 0f;
 
-        theButton[number].color = theColor;;
+        theButton[number].color = theColor;
     }
 
     public void NormalButton(int number)
@@ -29,6 +28,11 @@ public class ColorActivity : MonoBehaviour
         theColor.b = .6f;
 
         theButton[number].color = theColor;
+    }
+
+    public void GrayButton()
+    {
+        theButton[0].color = theColor;
     }
 }
 

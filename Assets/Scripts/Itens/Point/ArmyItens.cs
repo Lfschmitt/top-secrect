@@ -11,6 +11,8 @@ public class ArmyItens : MonoBehaviour {
 
     public int SetCompanyValue;
     public int CompanyValue;
+    //A cada alguns pontos de limit aumenta 1 de produçao
+    public int itenLimit;
 
     public int afectFood;
     public int afectWater;
@@ -69,13 +71,14 @@ public class ArmyItens : MonoBehaviour {
         if (requirement.requirement == "")
         {
             musicController.CoinSound();
+            allPoints.AddArmyLimit(itenLimit);
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
             allPoints.AddArmy(afectArmy);
-            allPoints.Addfood(afectFood);
-            allPoints.AddWater(afectWater);
-            allPoints.AddPopulation(afectPopulation);
+            allPoints.Addfood((int)(afectFood * PlayerPrefs.GetFloat("Difficult")));
+            allPoints.AddWater((int)(afectWater * PlayerPrefs.GetFloat("Difficult")));
+            allPoints.AddPopulation((int)(afectPopulation * PlayerPrefs.GetFloat("Difficult")));
         }
         else
         {

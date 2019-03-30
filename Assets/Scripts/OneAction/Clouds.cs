@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class Clouds : MonoBehaviour {
 
+    [Range(0, 100)]
     public float speed;
-    public int timeForDestroy;
     private Image image;
 
     private Color color;
     private NightController nightController;
-
+    private Transform destroyPoint;
     private void Start()
     {
+        destroyPoint = GameObject.Find("DestroyPoint").GetComponent<Transform>();
         nightController = GameObject.Find("TimeController").GetComponent<NightController>();
         image = GetComponent<Image>();
         color.a = 1f;
@@ -22,7 +23,9 @@ public class Clouds : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
-        Destroy(gameObject,timeForDestroy);
+        if (destroyPoint.position.x > transform.position.x)
+            Destroy(gameObject);
+
         if (nightController.day)
         {
             color.r = 1f;

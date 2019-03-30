@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AllPoints : MonoBehaviour {
+
     public int maxValue;
     public int minValue;
+    public int money;
+
     public int technology;
     public int science;
     public int army;
@@ -13,7 +16,14 @@ public class AllPoints : MonoBehaviour {
     public int population;
     public int power;
     public int nature;
-    public int money;
+
+    public bool DisableLimit;
+    public int technologyLimit;
+    public int scienceLimit;
+    public int armyLimit;
+    public int foodLimit;
+    public int populationLimit;
+    public int powerLimit;
 
     public void AddTechnology (int more)
     {
@@ -52,6 +62,31 @@ public class AllPoints : MonoBehaviour {
         money += more;
     }
 
+    public void AddTechnologyLimit(int more)
+    {
+        technologyLimit += more;
+    }
+    public void AddScienceLimit(int more)
+    {
+        scienceLimit += more;
+    }
+    public void AddArmyLimit(int more)
+    {
+        armyLimit += more;
+    }
+    public void AddFoodLimit(int more)
+    {
+        foodLimit += more;
+    }
+    public void AddPopulationLimit(int more)
+    {
+        populationLimit += more;
+    }
+    public void AddPowerLimit(int more)
+    {
+        powerLimit += more;
+    }
+
     public void Update()
     {
         if (technology > maxValue)
@@ -87,5 +122,15 @@ public class AllPoints : MonoBehaviour {
             nature = minValue;
         else if (power < minValue)
             power = minValue;
+
+        if (DisableLimit)
+        {
+            technologyLimit = 1000;
+            scienceLimit = 1000;
+            populationLimit = 1000;
+            armyLimit = 1000;
+            foodLimit = 1000;
+            powerLimit = 1000;
+        }
     } 
 }

@@ -7,8 +7,6 @@ public class RemovePointsController : MonoBehaviour {
     private AllPoints allPoints;
     private TimeController timeController;
 
-    public int technology;
-    public int science;
     public int army;
     public int food;
     public int water;
@@ -36,13 +34,11 @@ public class RemovePointsController : MonoBehaviour {
 
     void RemovePoints()
     {
-        allPoints.technology -= technology;
-        allPoints.science -= science;
-        allPoints.army -= army;
-        allPoints.food -= food;
-        allPoints.water -= water;
-        allPoints.population -= population;
-        allPoints.nature -= nature;
-        allPoints.power -= energy;
+        allPoints.army -= allPoints.population / army;
+        allPoints.food -= allPoints.population / food;
+        allPoints.water -= allPoints.population / water;
+        allPoints.population -= allPoints.population / population;
+        allPoints.nature -= allPoints.population / nature;
+        allPoints.power -= allPoints.population / energy;
     }
 }

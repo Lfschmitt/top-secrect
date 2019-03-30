@@ -72,8 +72,8 @@ public class NatureItens : MonoBehaviour {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
-            allPoints.AddPopulation(afectPopulation);
-            allPoints.AddWater(afectWater);
+            allPoints.AddPopulation((int)(afectPopulation * PlayerPrefs.GetFloat("Difficult")));
+            allPoints.AddWater((int)(afectWater * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddNature(afectNature);
         }
         else

@@ -81,21 +81,28 @@ MonoBehaviour:
     loop: 0
     randomVolume: 0
     randomPitch: 0
+  - name: Beat Dialogue
+    clip: {fileID: 8300000, guid: 0195e989d20b1c341924441586b13028, type: 3}
+    volume: 1
+    pitch: 4
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0.05
 --- !u!224 &224459483294650038
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1268298254966028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.597701, y: 4.597701, z: 4.597701}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -400, y: -641.3793}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}

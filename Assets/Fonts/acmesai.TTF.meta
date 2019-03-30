@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: d8609b47dde784f4faadc3572d531e86
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: A.C.M.E. Secret Agent
+  fontNames:
+  - A.C.M.E. Secret Agent
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9487dd1cae13ac44db6049c90dcfa51e, type: 3}
+  - {fileID: 12800000, guid: acd22ebd3b5342e4894b19e150b5054d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

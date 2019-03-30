@@ -11,11 +11,19 @@ public class RandomImagePosition : MonoBehaviour {
 
     private Population pop;
     private Energy energy;
+    private Food food;
+    private Technology technology;
+    private Army army;
+    private Science science;
 
     private void Start()
     {
         pop = GetComponent<Population>();
         energy = GetComponent<Energy>();
+        food = GetComponent<Food>();
+        technology = GetComponent<Technology>();
+        army = GetComponent<Army>();
+        science = GetComponent<Science>();
 
         //if was randomized the numbers just load their 
         if (PlayerPrefs.GetInt("FrontGroundSpawnPosition0") > 0 || PlayerPrefs.GetInt("FrontGroundSpawnPosition1") > 0)
@@ -179,8 +187,16 @@ public class RandomImagePosition : MonoBehaviour {
 
     public void RandomizePositions()
     {
-        /*__-__-__-__-__-__-__-__-__-__-__-__-  POPULATION  -__-__-__-__-__-__-__-__-__-__-__-__-*/
+        RandomizePopulation();
+        RandomizeEnergy();
+        RandomizeFood();
+        RandomizeTechnology();
+        RandomizeArmy();
+        RandomizeScience();
+    }
 
+    void RandomizePopulation()
+    {
         //Load day gameobjects of POPULATION 
         pop.world.dayGameobjects[0] = frontItens.FrontGroundDayGameObjects[frontItens.frontGroundNumbers[0] - 1];
         pop.world.dayGameobjects[1] = frontItens.FrontGroundDayGameObjects[frontItens.frontGroundNumbers[1] - 1];
@@ -189,7 +205,7 @@ public class RandomImagePosition : MonoBehaviour {
         pop.world.nightGameobject[0] = frontItens.FrontGroundNightGameObjects[frontItens.frontGroundNumbers[0] - 1];
         pop.world.nightGameobject[1] = frontItens.FrontGroundNightGameObjects[frontItens.frontGroundNumbers[1] - 1];
         pop.world.nightGameobject[2] = backItens.BackGroundNightGameObjects[backItens.backGroundNumbers[0] - 1];
-         
+
         //Load day images of POPULATION
         pop.world.dayImages[0] = images.GroundDayImage[frontItens.frontGroundNumbers[0] - 1];
         pop.world.dayImages[1] = images.GroundDayImage[frontItens.frontGroundNumbers[1] - 1];
@@ -198,9 +214,9 @@ public class RandomImagePosition : MonoBehaviour {
         pop.world.nightImages[0] = images.GroundNightImage[frontItens.frontGroundNumbers[0] - 1];
         pop.world.nightImages[1] = images.GroundNightImage[frontItens.frontGroundNumbers[1] - 1];
         pop.world.nightImages[2] = images.GroundNightImage[(backItens.backGroundNumbers[0] + frontItens.frontGroundNumbers.Length) - 1];
-
-        /*__-__-__-__-__-__-__-__-__-__-__-__-  ENERGY  -__-__-__-__-__-__-__-__-__-__-__-__-*/
-
+    }
+    void RandomizeEnergy()
+    {
         //Load day gameobjects of ENERGY 
         energy.world.dayGameobjects[0] = frontItens.FrontGroundDayGameObjects[frontItens.frontGroundNumbers[2] - 1];
         energy.world.dayGameobjects[1] = backItens.BackGroundDayGameObjects[backItens.backGroundNumbers[1] - 1];
@@ -226,6 +242,124 @@ public class RandomImagePosition : MonoBehaviour {
         energy.world.nightImages[1] = images.GroundNightImage[(backItens.backGroundNumbers[1] + frontItens.frontGroundNumbers.Length) - 1];
         energy.world.nightImages[2] = images.GroundNightImage[(backItens.backGroundNumbers[2] + frontItens.frontGroundNumbers.Length) - 1];
         energy.world.nightImages[3] = images.WaterNightImage[frontItens.frontWaterNumbers[0] - 1];
+
+    }
+    void RandomizeFood()
+    {
+
+        //Load day gameobjects of FOOD 
+        food.world.dayGameobjects[0] = frontItens.FrontGroundDayGameObjects[frontItens.frontGroundNumbers[3] - 1];
+        food.world.dayGameobjects[1] = backItens.BackGroundDayGameObjects[backItens.backGroundNumbers[3] - 1];
+        //Load day gameobject of water of FOOD
+        food.world.dayGameobjects[2] = backItens.BackWaterDayGameObjects[backItens.backWaterNumbers[0] - 1];
+        food.world.dayGameobjects[3] = frontItens.FrontWaterDayGameObjects[frontItens.frontWaterNumbers[1] - 1];
+
+        //Load night gameobjects of FOOD 
+        food.world.nightGameobject[0] = frontItens.FrontGroundNightGameObjects[frontItens.frontGroundNumbers[3] - 1];
+        food.world.nightGameobject[1] = backItens.BackGroundNightGameObjects[backItens.backGroundNumbers[3] - 1];
+        //Load night gameobject of water of FOOD
+        food.world.nightGameobject[2] = backItens.BackWaterNightGameObjects[backItens.backWaterNumbers[0] - 1];
+        food.world.nightGameobject[3] = frontItens.FrontWaterNightGameObjects[frontItens.frontWaterNumbers[1] - 1];
+
+        //Load day images of FOOD
+        food.world.dayImages[0] = images.GroundDayImage[frontItens.frontGroundNumbers[3] - 1];
+        food.world.dayImages[1] = images.GroundDayImage[(backItens.backGroundNumbers[3] + frontItens.frontGroundNumbers.Length) - 1];
+        food.world.dayImages[2] = images.WaterDayImage[(backItens.backWaterNumbers[0] + frontItens.frontWaterNumbers.Length) - 1];
+        food.world.dayImages[3] = images.WaterDayImage[frontItens.frontWaterNumbers[1] - 1];
+
+        //Load Night images of FOOD
+        food.world.nightImages[0] = images.GroundNightImage[frontItens.frontGroundNumbers[3] - 1];
+        food.world.nightImages[1] = images.GroundNightImage[(backItens.backGroundNumbers[3] + frontItens.frontGroundNumbers.Length) - 1];
+        food.world.nightImages[2] = images.WaterNightImage[(backItens.backWaterNumbers[0] + frontItens.frontWaterNumbers.Length) - 1];
+        food.world.nightImages[3] = images.WaterNightImage[frontItens.frontWaterNumbers[1] - 1];
+    }
+    void RandomizeTechnology()
+    {
+        //Load day gameobjects of TECHNOLOGY 
+        technology.world.dayGameobjects[0] = frontItens.FrontGroundDayGameObjects[frontItens.frontGroundNumbers[4] - 1];
+        technology.world.dayGameobjects[1] = frontItens.FrontGroundDayGameObjects[frontItens.frontGroundNumbers[5] - 1];
+        technology.world.dayGameobjects[2] = backItens.BackGroundDayGameObjects[backItens.backGroundNumbers[4] - 1];
+        technology.world.dayGameobjects[3] = backItens.BackGroundDayGameObjects[backItens.backGroundNumbers[5] - 1];
+
+
+        //Load night gameobjects of TECHNOLOGY 
+        technology.world.nightGameobject[0] = frontItens.FrontGroundNightGameObjects[frontItens.frontGroundNumbers[4] - 1];
+        technology.world.nightGameobject[1] = frontItens.FrontGroundNightGameObjects[frontItens.frontGroundNumbers[5] - 1];
+        technology.world.nightGameobject[2] = backItens.BackGroundNightGameObjects[backItens.backGroundNumbers[4] - 1];
+        technology.world.nightGameobject[3] = backItens.BackGroundNightGameObjects[backItens.backGroundNumbers[5] - 1];
+
+        //Load day images of TECHNOLOGY
+        technology.world.dayImages[0] = images.GroundDayImage[frontItens.frontGroundNumbers[4] - 1];
+        technology.world.dayImages[1] = images.GroundDayImage[frontItens.frontGroundNumbers[5] - 1];
+        technology.world.dayImages[2] = images.GroundDayImage[(backItens.backGroundNumbers[4] + frontItens.frontGroundNumbers.Length) - 1];
+        technology.world.dayImages[3] = images.GroundDayImage[(backItens.backGroundNumbers[5] + frontItens.frontGroundNumbers.Length) - 1];
+
+        //Load Night images of TECHNOLOGY
+        technology.world.nightImages[0] = images.GroundNightImage[frontItens.frontGroundNumbers[4] - 1];
+        technology.world.nightImages[1] = images.GroundNightImage[frontItens.frontGroundNumbers[5] - 1];
+        technology.world.nightImages[2] = images.GroundNightImage[(backItens.backGroundNumbers[4] + frontItens.frontGroundNumbers.Length) - 1];
+        technology.world.nightImages[3] = images.GroundNightImage[(backItens.backGroundNumbers[5] + frontItens.frontGroundNumbers.Length) - 1];
+    }
+    void RandomizeArmy()
+    {
+
+        //Load day gameobjects of FOOD 
+        army.world.dayGameobjects[0] = frontItens.FrontGroundDayGameObjects[frontItens.frontGroundNumbers[6] - 1];
+        army.world.dayGameobjects[1] = backItens.BackGroundDayGameObjects[backItens.backGroundNumbers[6] - 1];
+        //Load day gameobject of water of FOOD
+        army.world.dayGameobjects[2] = backItens.BackWaterDayGameObjects[backItens.backWaterNumbers[1] - 1];
+        army.world.dayGameobjects[3] = backItens.BackWaterDayGameObjects[backItens.backWaterNumbers[2] - 1];
+        army.world.dayGameobjects[4] = frontItens.FrontWaterDayGameObjects[frontItens.frontWaterNumbers[2] - 1];
+
+        //Load night gameobjects of FOOD 
+        army.world.nightGameobject[0] = frontItens.FrontGroundNightGameObjects[frontItens.frontGroundNumbers[6] - 1];
+        army.world.nightGameobject[1] = backItens.BackGroundNightGameObjects[backItens.backGroundNumbers[6] - 1];
+        //Load night gameobject of water of FOOD
+        army.world.nightGameobject[2] = backItens.BackWaterNightGameObjects[backItens.backWaterNumbers[1] - 1];
+        army.world.nightGameobject[3] = backItens.BackWaterNightGameObjects[backItens.backWaterNumbers[2] - 1];
+        army.world.nightGameobject[4] = frontItens.FrontWaterNightGameObjects[frontItens.frontWaterNumbers[2] - 1];
+
+        //Load day images of FOOD
+        army.world.dayImages[0] = images.GroundDayImage[frontItens.frontGroundNumbers[6] - 1];
+        army.world.dayImages[1] = images.GroundDayImage[(backItens.backGroundNumbers[6] + frontItens.frontGroundNumbers.Length) - 1];
+        army.world.dayImages[2] = images.WaterDayImage[(backItens.backWaterNumbers[1] + frontItens.frontWaterNumbers.Length) - 1];
+        army.world.dayImages[3] = images.WaterDayImage[(backItens.backWaterNumbers[2] + frontItens.frontWaterNumbers.Length) - 1];
+        army.world.dayImages[4] = images.WaterDayImage[frontItens.frontWaterNumbers[2] - 1];
+
+        //Load Night images of FOOD
+        army.world.nightImages[0] = images.GroundNightImage[frontItens.frontGroundNumbers[6] - 1];
+        army.world.nightImages[1] = images.GroundNightImage[(backItens.backGroundNumbers[6] + frontItens.frontGroundNumbers.Length) - 1];
+        army.world.nightImages[2] = images.WaterNightImage[(backItens.backWaterNumbers[1] + frontItens.frontWaterNumbers.Length) - 1];
+        army.world.nightImages[3] = images.WaterNightImage[(backItens.backWaterNumbers[2] + frontItens.frontWaterNumbers.Length) - 1];
+        army.world.nightImages[4] = images.WaterNightImage[frontItens.frontWaterNumbers[2] - 1];
+    }
+    void RandomizeScience()
+    {
+        //Load day gameobjects of SCIENCE 
+        science.world.dayGameobjects[0] = frontItens.FrontGroundDayGameObjects[frontItens.frontGroundNumbers[7] - 1];
+        science.world.dayGameobjects[1] = backItens.BackGroundDayGameObjects[backItens.backGroundNumbers[7] - 1];
+        //Load day gameobject of water of SCIENCE
+        science.world.dayGameobjects[2] = backItens.BackWaterDayGameObjects[backItens.backWaterNumbers[3] - 1];
+        science.world.dayGameobjects[3] = frontItens.FrontWaterDayGameObjects[frontItens.frontWaterNumbers[3] - 1];
+
+        //Load night gameobjects of SCIENCE 
+        science.world.nightGameobject[0] = frontItens.FrontGroundNightGameObjects[frontItens.frontGroundNumbers[7] - 1];
+        science.world.nightGameobject[1] = backItens.BackGroundNightGameObjects[backItens.backGroundNumbers[7] - 1];
+        //Load night gameobject of water of SCIENCE
+        science.world.nightGameobject[2] = backItens.BackWaterNightGameObjects[backItens.backWaterNumbers[3] - 1];
+        science.world.nightGameobject[3] = frontItens.FrontWaterNightGameObjects[frontItens.frontWaterNumbers[3] - 1];
+
+        //Load day images of SCIENCE
+        science.world.dayImages[0] = images.GroundDayImage[frontItens.frontGroundNumbers[7] - 1];
+        science.world.dayImages[1] = images.GroundDayImage[(backItens.backGroundNumbers[7] + frontItens.frontGroundNumbers.Length) - 1];
+        science.world.dayImages[2] = images.WaterDayImage[(backItens.backWaterNumbers[3] + frontItens.frontWaterNumbers.Length) - 1];
+        science.world.dayImages[3] = images.WaterDayImage[frontItens.frontWaterNumbers[3] - 1];
+
+        //Load Night images of SCIENCE
+        science.world.nightImages[0] = images.GroundNightImage[frontItens.frontGroundNumbers[7] - 1];
+        science.world.nightImages[1] = images.GroundNightImage[(backItens.backGroundNumbers[7] + frontItens.frontGroundNumbers.Length) - 1];
+        science.world.nightImages[2] = images.WaterNightImage[(backItens.backWaterNumbers[3] + frontItens.frontWaterNumbers.Length) - 1];
+        science.world.nightImages[3] = images.WaterNightImage[frontItens.frontWaterNumbers[3] - 1];
     }
 }
 

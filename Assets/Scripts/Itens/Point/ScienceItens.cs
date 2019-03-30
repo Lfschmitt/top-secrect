@@ -11,6 +11,8 @@ public class ScienceItens : MonoBehaviour {
 
     public int SetCompanyValue;
     public int CompanyValue;
+    //A cada alguns pontos de limit aumenta 1 de produçao
+    public int itenLimit;
 
     public int afectScience;
     public int afectPopulation;
@@ -69,13 +71,14 @@ public class ScienceItens : MonoBehaviour {
         if (requirement.requirement == "")
         {
             musicController.CoinSound();
+            allPoints.AddScienceLimit(itenLimit);   
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
             allPoints.AddScience(afectScience);
-            allPoints.AddPopulation(afectPopulation);
-            allPoints.AddNature(afectNature);
-            allPoints.AddPower(afectEnergy);
+            allPoints.AddPopulation((int)(afectPopulation * PlayerPrefs.GetFloat("Difficult")));
+            allPoints.AddNature((int)(afectNature * PlayerPrefs.GetFloat("Difficult")));
+            allPoints.AddPower((int)(afectEnergy * PlayerPrefs.GetFloat("Difficult")));
         }
         else
         {

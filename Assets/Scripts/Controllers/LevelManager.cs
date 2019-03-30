@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-    public GameObject shop;
-    public GameObject pointsMenu;
     public GameObject pointsMenu1;
     public GameObject pointsMenu2;
-    public GameObject exitPanel;
 
     public Text buttonPointsText;
     public string nameTheme;
+    public Animator shopAnimator;
+    public Animator exitAnimator;
+    public Animator pointsAnimator;
 
     private bool changeLock = true;
     private MusicController musicController;
@@ -25,15 +25,15 @@ public class LevelManager : MonoBehaviour {
 
     public void Shop(bool name)
     {
-        shop.SetActive(name);
+        shopAnimator.SetBool("IsOpen", name);
     }
     public void PointsMenu(bool name)
     {
-        pointsMenu.SetActive(name);
+        pointsAnimator.SetBool("IsOpen", name);
     }
     public void ExitPanel(bool name)
     {
-        exitPanel.SetActive(name);
+        exitAnimator.SetBool("IsOpen",name);
     }
     public void ReturnMenu()
     {
@@ -41,6 +41,12 @@ public class LevelManager : MonoBehaviour {
         SceneManager.UnloadSceneAsync("World");
     }
 
+    public void CloseAllPanels()
+    {
+        Shop(false);
+        PointsMenu(false);
+        ExitPanel(false);
+    }
     public void ChangePointsPanel()
     {
         if (changeLock)

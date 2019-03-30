@@ -177,7 +177,6 @@ public class RandonDestroy : MonoBehaviour {
         nat = Nat;
         power = Power;
         food = Food;
-        allPoints.AddMoney(-moneyRequired);
     }
 
     public void RemovePoints(bool Continue)

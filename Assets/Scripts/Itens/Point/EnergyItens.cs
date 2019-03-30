@@ -11,6 +11,8 @@ public class EnergyItens : MonoBehaviour {
 
     public int SetCompanyValue;
     public int CompanyValue;
+    //A cada alguns pontos de limit aumenta 1 de produçao
+    public int itenLimit;
 
     public int afectPopulation;
     public int afectNature;
@@ -69,10 +71,11 @@ public class EnergyItens : MonoBehaviour {
         {
             musicController.CoinSound();
             allPoints.money -= CompanyValue;
+            allPoints.AddPowerLimit(itenLimit);
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
-            allPoints.AddPopulation(afectPopulation);
-            allPoints.AddNature(afectNature);
+            allPoints.AddPopulation((int)(afectPopulation * PlayerPrefs.GetFloat("Difficult")));
+            allPoints.AddNature((int)(afectNature * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddPower(afectEnergy);
         }
         else

@@ -9,16 +9,17 @@ public class MenuManager : MonoBehaviour {
     public Text confirmText;
     public GameObject confirmPanel;
     public GameObject settingsPanel;
-
+    public GameObject difficultPanel;
     private MusicController musicController;
 
+    public ColorActivity colorActivity;
     public Toggle toggleMusic;
     public Toggle toggleSound;
 
-    private void Awake()
+    private void Start()
     {
         musicController = GetComponent<MusicController>();
-
+        //PlayerPrefs.DeleteAll();
         if (PlayerPrefs.GetInt("Sound") == 1)
             toggleSound.isOn = false;
 
@@ -26,6 +27,9 @@ public class MenuManager : MonoBehaviour {
             toggleMusic.isOn = false;    
 
         StartCoroutine(Music());
+
+        if (PlayerPrefs.GetInt("SaveGame") == 0)
+            colorActivity.GrayButton();
     }
 
     public void StartGame() {
@@ -36,7 +40,7 @@ public class MenuManager : MonoBehaviour {
         }
         else
         {
-            ChangeScene(true); ;
+            difficultPanel.SetActive(true);
         }
     }
 
@@ -69,13 +73,25 @@ public class MenuManager : MonoBehaviour {
         if(newGame == true)
         {
             PlayerPrefs.SetInt("NewGame", 1);
+            SceneManager.LoadScene("Introduction");
         }
         else
         {
             PlayerPrefs.SetInt("NewGame", 0);
+            SceneManager.LoadScene("World");
         }
-        SceneManager.LoadScene("World");
-        SceneManager.UnloadSceneAsync("Menu");
+    }
+
+    public void DifficultPanel(bool name)
+    {
+        difficultPanel.SetActive(name);
+    }
+
+    public void DifficultSelect(float difficult)
+    {
+        Debug.Log(difficult);
+        PlayerPrefs.SetFloat("Difficult", difficult);
+        NewGame();
     }
 
     IEnumerator Music()
