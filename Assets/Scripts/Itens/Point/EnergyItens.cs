@@ -74,6 +74,7 @@ public class EnergyItens : MonoBehaviour {
             allPoints.AddPowerLimit(itenLimit);
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
+            PlayerPrefs.SetInt("EnergyCompanieValue", CompanyValue);
             allPoints.AddPopulation((int)(afectPopulation * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddNature((int)(afectNature * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddPower(afectEnergy);

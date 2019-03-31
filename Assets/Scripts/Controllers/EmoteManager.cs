@@ -57,7 +57,7 @@ public class EmoteManager : MonoBehaviour {
 
     void CalculatePoints()
     {
-        if(tech > (pop - minValues[0]))
+        if(tech > ((pop - minValues[0])*2))
         {
             necessities[0].id = 0;
         }
@@ -82,7 +82,7 @@ public class EmoteManager : MonoBehaviour {
             }
         }
 
-        if (sci > (pop - minValues[0]))
+        if (sci > ((pop - minValues[0])*2))
         {
             necessities[1].id = 0;
         }

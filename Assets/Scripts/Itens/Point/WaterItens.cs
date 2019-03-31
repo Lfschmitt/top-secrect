@@ -71,6 +71,7 @@ public class WaterItens : MonoBehaviour {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
+            PlayerPrefs.SetInt("WaterCompanieValue", CompanyValue);
             allPoints.AddNature((int)(afectNature * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddWater(afectWater);
             allPoints.AddPopulation((int)(afectPopulation * PlayerPrefs.GetFloat("Difficult")));

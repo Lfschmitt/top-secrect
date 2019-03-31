@@ -76,6 +76,7 @@ public class ScienceItens : MonoBehaviour {
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
             allPoints.AddScience(afectScience);
+            PlayerPrefs.SetInt("ScienceCompanieValue", CompanyValue);
             allPoints.AddPopulation((int)(afectPopulation * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddNature((int)(afectNature * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddPower((int)(afectEnergy * PlayerPrefs.GetFloat("Difficult")));

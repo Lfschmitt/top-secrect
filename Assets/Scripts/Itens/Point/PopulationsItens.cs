@@ -77,6 +77,7 @@ public class PopulationsItens : MonoBehaviour {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
+            PlayerPrefs.SetInt("PopulationCompanieValue", CompanyValue);
             allPoints.AddArmy((int)(afectArmy * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddWater((int)(afectWater * PlayerPrefs.GetFloat("Difficult")));
             allPoints.Addfood((int)(afectFood * PlayerPrefs.GetFloat("Difficult")));

@@ -90,7 +90,7 @@ public class RandonDestroy : MonoBehaviour {
     {
         EnablePanel(true);
         vibration.Vibrate();
-        text.text = "some cities were hit by a tsunami the planet's status suffered a little";
+        text.text = "some cities were hit by a tsunami, the planet lose population, nature and energy";
         Points(-30, -30, 0, 0);
 
         destroy1 = 0;
@@ -118,7 +118,7 @@ public class RandonDestroy : MonoBehaviour {
     {
         EnablePanel(true);
         vibration.Vibrate();
-        text.text = "some generators of ernergia were hit by a storm and were turned off";
+        text.text = "some energy generators were breaked by the storm";
         Points(0, 0, -50, 0);
 
         destroy1 += 10;
@@ -146,7 +146,7 @@ public class RandonDestroy : MonoBehaviour {
     {
         EnablePanel(true);
         vibration.Vibrate();
-        text.text = "a volcano erupted and deforested large areas with nature";
+        text.text = "a volcano erupted and destroyed large natural areas";
         Points(0, -75, 0, 0);
 
         destroy1 += 10;
@@ -160,7 +160,7 @@ public class RandonDestroy : MonoBehaviour {
     {
         EnablePanel(true);
         vibration.Vibrate();
-        text.text = "a hurricane destroyed some house and left many people injured";
+        text.text = "a hurricane destroyed many house and left many people injured";
         Points(-50, 0, 0, 0);
         
         destroy1 += 10;

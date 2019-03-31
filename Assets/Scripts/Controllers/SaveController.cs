@@ -146,6 +146,15 @@ public class SaveController : MonoBehaviour {
         nature.NumberOfCompany = PlayerPrefs.GetInt("NatureNumberOfCompany");
         energy.NumberOfCompany = PlayerPrefs.GetInt("EnergyNumberOfCompany");
 
+        technology.CompanyValue = PlayerPrefs.GetInt("TechnologyCompanieValue");
+        science.CompanyValue = PlayerPrefs.GetInt("ScienceCompanieValue");
+        population.CompanyValue = PlayerPrefs.GetInt("PopulationCompanieValue");
+        army.CompanyValue = PlayerPrefs.GetInt("ArmyCompanieValue");
+        food.CompanyValue = PlayerPrefs.GetInt("FoodCompanieValue");
+        water.CompanyValue = PlayerPrefs.GetInt("WaterCompanieValue");
+        energy.CompanyValue = PlayerPrefs.GetInt("EnergyCompanieValue");
+        nature.CompanyValue = PlayerPrefs.GetInt("NatureCompanieValue");
+
         randonDestroy.destroy1 = PlayerPrefs.GetInt("Destroy1");
         randonDestroy.destroy2 = PlayerPrefs.GetInt("Destroy2");
         randonDestroy.destroy3 = PlayerPrefs.GetInt("Destroy3");

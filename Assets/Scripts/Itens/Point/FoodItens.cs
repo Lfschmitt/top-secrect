@@ -75,6 +75,7 @@ public class FoodItens : MonoBehaviour {
             allPoints.money -= CompanyValue;
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
+            PlayerPrefs.SetInt("FoodCompanieValue", CompanyValue);
             allPoints.AddNature((int)(afectNature * PlayerPrefs.GetFloat("Difficult")));
             allPoints.Addfood(afectFood);
             allPoints.AddPower((int)(afectEnergy * PlayerPrefs.GetFloat("Difficult")));

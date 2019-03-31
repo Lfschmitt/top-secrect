@@ -76,6 +76,7 @@ public class ArmyItens : MonoBehaviour {
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
             allPoints.AddArmy(afectArmy);
+            PlayerPrefs.SetInt("ArmyCompanieValue", CompanyValue);
             allPoints.Addfood((int)(afectFood * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddWater((int)(afectWater * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddPopulation((int)(afectPopulation * PlayerPrefs.GetFloat("Difficult")));

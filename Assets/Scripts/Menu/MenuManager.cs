@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour {
     public GameObject confirmPanel;
     public GameObject settingsPanel;
     public GameObject difficultPanel;
+    public GameObject creditsPanel;
     private MusicController musicController;
 
     public ColorActivity colorActivity;
@@ -85,6 +86,11 @@ public class MenuManager : MonoBehaviour {
     public void DifficultPanel(bool name)
     {
         difficultPanel.SetActive(name);
+    }
+
+    public void CreditsPanel(bool name)
+    {
+        creditsPanel.SetActive(name);
     }
 
     public void DifficultSelect(float difficult)

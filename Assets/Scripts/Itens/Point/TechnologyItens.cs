@@ -75,6 +75,7 @@ public class TechnologyItens : MonoBehaviour {
             NumberOfCompany += number;
             CompanyValue += SetCompanyValue;
             allPoints.AddTechnology(afectTechnology);
+            PlayerPrefs.SetInt("TechnologyCompanieValue", CompanyValue);
             allPoints.AddPopulation((int)(afectPopulation * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddNature((int)(afectNature * PlayerPrefs.GetFloat("Difficult")));
             allPoints.AddPower((int)(afectEnergy * PlayerPrefs.GetFloat("Difficult")));

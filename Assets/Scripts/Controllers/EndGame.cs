@@ -71,58 +71,58 @@ public class EndGame : MonoBehaviour {
     {
         //Lose by pollution
         if (pop > (nat + 300))
-            Destruction("You dont have nature enought for the people");
+            Destruction("there isn't enough nature for people");
 
         //Greve Da Raça humana
         if (food < (pop - 220) && water < (pop - 220) && nat < (pop -220))
-            Destruction("Your people are sad and do strike");
+            Destruction("People are sad and starting to turn-out");
 
         //Lack of popuation
         if (tec - pop > 300 || sci - pop > 300)
-            Destruction("You dont have people for the companies an your planet went bankrupt");
+            Destruction("Lack people for companies and your planet went bankrupt");
 
         //Lack of army
-        if(army < (pop * 0.2))
+        //if(army < (pop * 0.2))
 
         //Lack of food
         if (food < (pop / 2))
-            Destruction("Lack of food for the populations");
+            Destruction("Lack food for people");
 
         //Lack of water
         if (water < (pop * 0.8))
-            Destruction("Lack of Water for the populations");
+            Destruction("Lack Water for people");
 
         //Apocalypse
         if (sci > (pop * 1.3) && army < (pop / 3))
-            Destruction("The zombies take the control of planet");
+            Destruction("The zombies took the planet control");
 
         //RobotLypse
         if (tec > (pop * 1.3) && army < (pop / 3))
-            Destruction("The robots take control of the planet");
+            Destruction("The robots took the planet control");
 
         //Destruição por raça alienígena
         if ((tec < (pop - 250) || sci < (pop - 250)) && army < (pop / 3) && water > 800 || timeController.totalDays == 1000)
-            Destruction("Your planet was invaded by aliens");
+            Destruction("the planet was invaded by aliens");
 
         //Destruction for other specie
         if (army < (pop / 3) && food > (pop * 1.6) && nat > (pop * 1.5))
-            Destruction("Your planet was attacked for the natives");
+            Destruction("the planet was attacked by natives");
 
         //Dictatorship  
         if (army > (tec * 1.5) && army > (sci * 1.5) && army > (pop * 1.6))
-            Destruction("The army take the control of the planet");
+            Destruction("The army took the planet control");
 
         //Nature of the Planet died
         if (nat <= 10)
-            Destruction("Nature of the your planet is dead");
+            Destruction("The planet nature is died");
 
         //water of the planet dried out
         if (water <= 10)
-            Destruction("Water of the planet dried out");
+            Destruction("The planet water dried out");
 
-        //The population is dead
+        //The population died
         if (pop <= 10)
-            Destruction("You dont Have people for your planets");
+            Destruction("The population died");
     }
 
     void CheckWinGame()
@@ -139,21 +139,21 @@ public class EndGame : MonoBehaviour {
         if (tec > 800 && pop > 600 && nat > 700 && water > 700)
         {
             finishAnimation.ScienceTechnologyWinAnimation(true);
-            FinishGame("You got a plant with high Technology", timeController.totalDays);
+            FinishGame("You got a planet with high Technology", timeController.totalDays);
         }
 
         //Win with very high Science
         if (sci > 800 && pop > 600 && nat > 700 && water > 700)
         {
             finishAnimation.ScienceTechnologyWinAnimation(true);
-            FinishGame("You got a plant with high Science", timeController.totalDays);
+            FinishGame("You got a planet with high Science", timeController.totalDays);
         }
 
         //Win With very high Population
         if (pop > 800 && nat > 700 && water > 700)
         {
             finishAnimation.PopulationWinAnimation(true);
-            FinishGame("Your population are in peace", timeController.totalDays);
+            FinishGame("The population is in peace", timeController.totalDays);
         }
     }
 
